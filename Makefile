@@ -1,16 +1,10 @@
 NAME	=	libftprintf.a
 CFLAGS	=	-Wall -Werror -Wextra
 SRCS	=	src/printf.c \
-			src/ft_converthex.c \
-			src/ft_conversion.c \
-			src/ft_padding.c \
+			src/conversion.c \
 			libft/ft_putchar_fd.c \
-			libft/ft_putlong_fd.c \
 			libft/ft_putnbr_fd.c \
-			libft/ft_putstr_fd.c \
-			libft/ft_strlen.c \
-			libft/ft_atoi.c \
-			convert/convert_flags.c
+			libft/ft_strchr.c \
 
 OBJS	=	$(SRCS:.c=.o)
 

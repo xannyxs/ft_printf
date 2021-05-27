@@ -12,9 +12,9 @@ int main()
 	ptr = "Xander";
 	swag = -33;
 	printf("\n--- FT_PRINTF ---\n\n");
-	i = ft_printf("%5u", swag);
+	i = ft_printf("%d", swag);
 	printf("\n\n--- PRINTF ---\n\n");
-	j = printf("%5u", swag);
+	j = printf("%d", swag);
 	printf("\n\n");
 	printf("ft_printf return: %d\n", i);
 	printf("printf return: %d\n", j);
