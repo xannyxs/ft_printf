@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putnbr_fd.c                                     :+:    :+:            */
+/*   ft_numlen.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: xvoorvaa <marvin@codam.nl>                   +#+                     */
+/*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/20 14:58:40 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/05/30 20:20:01 by xvoorvaa      ########   odam.nl         */
+/*   Created: 2021/05/30 18:15:49 by xvoorvaa      #+#    #+#                 */
+/*   Updated: 2021/05/30 20:17:08 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_putnbr_fd(int n, int fd, size_t len)
+int	numlen(int number)
 {
-	long i;
-;
-	i = n;
-	if (i < 0)
-	{
-		write(fd, "-", 1);
-		i = i * -1;
-		len++;
-	}
-	if (i > 9)
-	{
-		len = ft_putnbr_fd(i / 10, fd, len);
-		len = ft_putnbr_fd(i % 10, fd, len);
-	}
-	else
-	{
-		i = i + '0';
-		write(fd, &i, 1);
-		len++;
-	}
+	int	len;
+
+	len = 0;
+	if (number > 9)
+		len = numlen(number / 10) + len;
+	len++;
 	return (len);
 }

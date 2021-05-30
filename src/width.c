@@ -1,53 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   printf.c                                           :+:    :+:            */
+/*   width.c                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/05/27 15:11:49 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/05/30 20:10:06 by xvoorvaa      ########   odam.nl         */
+/*   Created: 2021/05/30 17:40:20 by xvoorvaa      #+#    #+#                 */
+/*   Updated: 2021/05/30 20:10:11 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
-int	check_perc(char *str, va_list ap)
+void width(char **str)
 {
-	size_t len;
-
-
-	while (*str != '\0')
-	{
-		if (*str == '%')
-		{
-			str++;
-			if (ft_strchr(INT, *str))
-				width(&str);
-			if (ft_strchr(CONV, *str))
-				len = conversion(str, ap) + len;
-		}
-		else
-		{
-			ft_putchar_fd(*str, 1);
-			len++;
-		}
-		str++;
-	}
-	return (len);
+    flags.width = ft_atoi(str[0]);
+    while (*str[0] >= '0' && *str[0] <= '9')
+        (*str)++;
 }
 
-int	ft_printf(const char *str, ...)
+int	print_width(int ap)
 {
-	va_list arg;
-	char *ptr;
 	size_t len;
-
+	
 	len = 0;
-	ptr = (char *) str;
-	va_start(arg, str);
-	len = check_perc(ptr, arg);
-	len++;
-	va_end(arg);
+    while (flags.width - numlen(ap) > 0)
+    {
+        write(1, " ", 1);
+        flags.width--;
+		len++;
+    }
+	len--;
 	return (len);
 }
