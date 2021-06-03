@@ -22,7 +22,7 @@ int	check_perc(char *str, va_list ap)
 		if (*str == '%')
 		{
 			str++;
-			if (ft_strchr(INT, *str))
+			if (ft_strchr(WIDTH, *str))
 				width(&str);
 			if (ft_strchr(CONV, *str))
 				len = conversion(str, ap) + len;

@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 16:21:50 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/05/30 20:15:26 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/03 22:52:37 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	convert_hex(long number, int check)
 {
-	const char *caps_digits;
-	const char *nocaps_digits;
+	const char	*caps_digits;
+	const char	*nocaps_digits;
 
 	caps_digits = "0123456789ABCDEF";
 	nocaps_digits = "0123456789abcdef";
@@ -30,8 +30,8 @@ void	convert_hex(long number, int check)
 
 void	convert_p(unsigned long long number)
 {
-	const char *nocaps_digits;
-	int check;
+	const char	*nocaps_digits;
+	int			check;
 
 	check = 0;
 	nocaps_digits = "0123456789abcdef";
@@ -44,33 +44,18 @@ void	convert_p(unsigned long long number)
 
 int	conversion(char *str, va_list ap)
 {
-	int i;
-	int width;
-	char *ptr;
-	char flag_c;
-	long long hex;
-	
+	int			i;
+	char		flag_c;
+	long long	hex;
+
 	i = 0;
 	hex = 0;
 	if (*str == 's')
-	{
-		ptr = va_arg(ap, char *);
-		while (*ptr)
-		{
-			write(1, ptr, 1);
-			ptr++;
-			i++;
-		}
-	}
+		i = print_s(ap);
 	else if (*str == 'i' || *str == 'd')
-	{
-		i = va_arg(ap, int);
-		width = print_width(i);
-		i = ft_putnbr_fd(i, 1, 0);
-		i = i + width;
-	}
+		i = print_id(ap);
 	else if (*str == 'c')
-	{	
+	{
 		flag_c = va_arg(ap, int);
 		write(1, &flag_c, 1);
 		i++;

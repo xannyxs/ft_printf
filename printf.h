@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/24 19:26:37 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/05/30 20:17:12 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/03 22:49:33 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 # include <unistd.h>
 # include <stdarg.h>
 # define CONV "cspdiuxX%"
-# define INT "-0123456789"
+# define WIDTH "-0123456789"
 
 struct s_flags
 {
 	int	width;
+	int minus_true;
 }		flags;
 
 int		ft_printf(const char *str, ...);
@@ -40,5 +41,9 @@ int		ft_atoi(const char *str);
 int		print_width(int ap);
 
 int		numlen(int number);
+
+int		print_id(va_list ap);
+
+int		print_s(va_list ap);
 
 #endif

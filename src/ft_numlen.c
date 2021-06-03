@@ -17,8 +17,10 @@ int	numlen(int number)
 	int	len;
 
 	len = 0;
-	if (number > 9)
+	if (number > 9 || number < -9)
 		len = numlen(number / 10) + len;
+	if (number > -9 && number < 0)
+		len++;
 	len++;
 	return (len);
 }

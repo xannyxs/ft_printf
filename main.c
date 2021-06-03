@@ -3,7 +3,7 @@
 /*
 	WWPD?
 	(What would printf do?)
-*/ 
+*/
 
 int main()
 {
@@ -15,14 +15,13 @@ int main()
 
 	c = 'i';
 	ptr = "Xander";
-	swag = -33234;
+	swag = 482;
 	printf("\n--- FT_PRINTF ---\n\n");
-	i = ft_printf("%i", swag);
+	i = ft_printf("%s", ptr);
 	printf("\n\n--- PRINTF ---\n\n");
-	j = printf("%i", swag);
+	j = printf("%s", ptr);
 	printf("\n\n");
 	printf("ft_printf return: %d\n", i);
 	printf("printf return: %d\n", j);
 	return (0);
 }
- 

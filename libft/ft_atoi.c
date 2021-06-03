@@ -24,7 +24,7 @@ int		ft_atoi(const char *str)
 		i++;
 	if (str[i] == '\e' || ((str[i] < '0' || str[i] > '9')
 		&& (str[i] != '+' && str[i] != '-')))
-        i++;
+		i++;
 	while (str[i] != '\0')
 	{
 		if (str[i] == '-')
