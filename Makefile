@@ -8,7 +8,10 @@ SRCS	=	src/printf.c \
 			libft/ft_atoi.c \
 			libft/ft_putchar_fd.c \
 			libft/ft_putnbr_fd.c \
-			libft/ft_strchr.c
+			libft/ft_strchr.c \
+			libft/ft_putlong_fd.c \
+			libft/ft_strlen.c \
+			libft/ft_strdup.c \
 
 OBJS	=	$(SRCS:.c=.o)
 

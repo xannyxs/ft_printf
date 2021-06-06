@@ -6,7 +6,7 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/03 17:12:39 by xander        #+#    #+#                 */
-/*   Updated: 2021/06/03 22:50:08 by xander        ########   odam.nl         */
+/*   Updated: 2021/06/06 14:03:51 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	print_id(va_list ap)
 {
-	int width;
-	int number;
+	int	width;
+	int	number;
 
 	number = va_arg(ap, int);
 	width = number;
@@ -34,19 +34,35 @@ int	print_id(va_list ap)
 	return (number);
 }
 
-int print_s(va_list ap)
+int	print_s(va_list ap)
 {
-	size_t len;
-	char *ptr;
+	size_t	len;
+	char	*ptr;
+	char	*str;
 
 	len = 0;
 	ptr = va_arg(ap, char *);
-	while (*ptr)
+	str = ft_strdup(ptr);
+	if (flags.minus_true == 1)
 	{
-		write(1, ptr, 1);
-		ptr++;
-		len++;
+		while (*ptr)
+		{
+			write(1, ptr, 1);
+			ptr++;
+			len++;
+		}
+		len = print_width_str(str) + len;
+		flags.minus_true = 0;
 	}
-	len--;
+	else
+	{
+		len = print_width_str(str) + len;
+		while (*ptr)
+		{
+			write(1, ptr, 1);
+			ptr++;
+			len++;
+		}
+	}
 	return (len);
 }

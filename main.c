@@ -17,9 +17,9 @@ int main()
 	ptr = "Xander";
 	swag = 482;
 	printf("\n--- FT_PRINTF ---\n\n");
-	i = ft_printf("%s", ptr);
+	i = ft_printf("%-8s --", ptr);
 	printf("\n\n--- PRINTF ---\n\n");
-	j = printf("%s", ptr);
+	j = printf("%-8s --", ptr);
 	printf("\n\n");
 	printf("ft_printf return: %d\n", i);
 	printf("printf return: %d\n", j);

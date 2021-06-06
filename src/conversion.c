@@ -6,40 +6,47 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 16:21:50 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/03 22:52:37 by xander        ########   odam.nl         */
+/*   Updated: 2021/06/06 12:50:30 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
-void	convert_hex(long number, int check)
+int		convert_hex(long number, int check)
 {
 	const char	*caps_digits;
 	const char	*nocaps_digits;
+	size_t		len;
 
+	len = 0;
 	caps_digits = "0123456789ABCDEF";
 	nocaps_digits = "0123456789abcdef";
 	if (number > 15)
-		convert_hex(number / 16, check);
+		len = convert_hex(number / 16, check) + len;
 	number = number % 16;
 	if (check == 1)
 		write(1, &caps_digits[number], 1);
 	else if (check == 0)
 		write(1, &nocaps_digits[number], 1);
+	len++;
+	return (len);
 }
 
-void	convert_p(unsigned long long number)
+int		convert_p(unsigned long long number)
 {
 	const char	*nocaps_digits;
 	int			check;
+	size_t		len;
 
 	check = 0;
+	len = 3;
 	nocaps_digits = "0123456789abcdef";
 	write(1, "0x", 2);
 	if (number > 15)
-		convert_hex(number / 16, check);
+		len = convert_hex(number / 16, check) + len;
 	number = number % 16;
 	write(1, &nocaps_digits[number], 1);
+	return (len);
 }
 
 int	conversion(char *str, va_list ap)
@@ -68,24 +75,23 @@ int	conversion(char *str, va_list ap)
 	else if (*str == 'x')
 	{
 		hex = (unsigned int) va_arg(ap, int);
-		convert_hex(hex, 0);
-		return (hex);
+		i = convert_hex(hex, 0);
 	}
 	else if (*str == 'X')
 	{
 		hex = (unsigned int) va_arg(ap, int);
-		convert_hex(hex, 1);
-		return (hex);
+		i = convert_hex(hex, 1);
 	}
 	else if (*str == 'p')
 	{
 		hex = (unsigned long long) va_arg(ap, void *);
-		convert_p(hex);
+		i = convert_p(hex);
 	}
 	else if (*str == 'u')
 	{
 		hex = (unsigned int) va_arg(ap, int);
-		i = ft_putnbr_fd(hex, 1, numlen(hex));
+		i = ft_putlong_fd(hex, 1, 0);
+		i--;
 	}
 	return (i);
 }
