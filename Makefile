@@ -4,7 +4,7 @@ SRCS	=	src/printf.c \
 			src/conversion.c \
 			src/width.c \
 			src/ft_numlen.c \
-			src/print/print_conv.c \
+			src/print/print_id.c \
 			libft/ft_atoi.c \
 			libft/ft_putchar_fd.c \
 			libft/ft_putnbr_fd.c \
@@ -15,6 +15,9 @@ SRCS	=	src/printf.c \
 			libft/ft_putstr_fd.c \
 			src/print/print_u.c \
 			src/print/print_c.c \
+			src/print/print_s.c \
+			src/print/print_x.c \
+			src/print/print_p.c \
 
 OBJS	=	$(SRCS:.c=.o)
 
