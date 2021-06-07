@@ -6,7 +6,7 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/03 17:12:39 by xander        #+#    #+#                 */
-/*   Updated: 2021/06/07 12:16:45 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/07 15:02:20 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	print_id(va_list ap)
 		width = print_width_int(number);
 		number = ft_putnbr_fd(number, 1, 0);
 	}
-	number = number + width;
+	number = number + width + 1;
 	return (number);
 }
 
@@ -53,13 +53,14 @@ int	print_s(va_list ap)
 		len = print_width_str(str) + ft_strlen(ptr);
 		ft_putstr_fd(ptr, 1);
 	}
+	len++;
 	return (len);
 }
 
 size_t	print_x(va_list ap, int check)
 {
-	size_t len;
-	int hex;
+	size_t	len;
+	int		hex;
 
 	len = 0;
 	hex = va_arg(ap, int);
@@ -73,6 +74,7 @@ size_t	print_x(va_list ap, int check)
 		len = print_width_int(hex);
 		len = convert_hex(hex, check) + len;
 	}
+	len++;
 	return (len);
 }
 
@@ -83,8 +85,8 @@ size_t	print_x(va_list ap, int check)
 
 size_t	print_p(va_list ap)
 {
-	size_t len;
-	unsigned long long hex;
+	size_t				len;
+	unsigned long long	hex;
 
 	len = 0;
 	hex = (unsigned long long) va_arg(ap, void *);

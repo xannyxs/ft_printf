@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 11:27:44 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/07 12:19:01 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/07 14:29:22 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	print_u(va_list ap)
 {
-	size_t len;
+	size_t		len;
 	long long	hex;
 
 	len = 0;

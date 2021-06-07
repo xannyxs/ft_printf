@@ -6,13 +6,13 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 16:21:50 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/07 11:50:37 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/07 14:33:04 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
-int		convert_hex(long number, int check)
+int	convert_hex(long number, int check)
 {
 	const char	*caps_digits;
 	const char	*nocaps_digits;
@@ -32,7 +32,7 @@ int		convert_hex(long number, int check)
 	return (len);
 }
 
-int		convert_p(unsigned long long number)
+int	convert_p(unsigned long long number)
 {
 	const char	*nocaps_digits;
 	size_t		len;
@@ -49,7 +49,7 @@ int		convert_p(unsigned long long number)
 
 int	conversion(char *str, va_list ap)
 {
-	size_t		len;
+	size_t	len;
 
 	len = 0;
 	if (*str == 's')

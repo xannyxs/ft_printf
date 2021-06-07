@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/24 19:26:37 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/07 11:48:20 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/07 15:12:31 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 struct s_flags
 {
 	int	width;
-	int minus_true;
-	int zero_true;
+	int	minus_true;
+	int	zero_true;
 }		flags;
 
 int		ft_printf(const char *str, ...);

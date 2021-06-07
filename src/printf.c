@@ -6,21 +6,28 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 15:11:49 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/05/30 20:10:06 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/07 14:59:20 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
+void	reset_struct(void)
+{
+	flags.width = 0;
+	flags.minus_true = 0;
+	flags.zero_true = 0;
+}
+
 int	check_perc(char *str, va_list ap)
 {
-	size_t len;
-
+	size_t	len;
 
 	while (*str != '\0')
 	{
 		if (*str == '%')
 		{
+			reset_struct();
 			str++;
 			if (ft_strchr(WIDTH, *str))
 				width(&str);
@@ -39,15 +46,14 @@ int	check_perc(char *str, va_list ap)
 
 int	ft_printf(const char *str, ...)
 {
-	va_list arg;
-	char *ptr;
-	size_t len;
+	va_list	arg;
+	char	*ptr;
+	size_t	len;
 
 	len = 0;
 	ptr = (char *) str;
 	va_start(arg, str);
 	len = check_perc(ptr, arg);
-	len++;
 	va_end(arg);
 	return (len);
 }

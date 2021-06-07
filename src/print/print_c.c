@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 11:47:14 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/07 12:18:26 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/07 14:30:54 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
 size_t	print_c(va_list ap)
 {
-	int	flag_c;
-	size_t len;
+	int		flag_c;
+	size_t	len;
 
 	len = 0;
 	flag_c = va_arg(ap, int);

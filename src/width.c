@@ -6,13 +6,13 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/30 17:40:20 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/07 12:12:13 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/07 15:27:20 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
-void width(char **str)
+void	width(char **str)
 {
 	if (*str[0] == '-')
 	{
@@ -31,46 +31,40 @@ void width(char **str)
 
 int	print_width_int(int ap)
 {
-	size_t len;
+	int	len;
 
 	len = 0;
-	while (flags.width - numlen(ap) > 0 && flags.zero_true == 1)
+	while (flags.width - numlen(ap) > len && flags.zero_true == 1)
 	{
 		write(1, "0", 1);
-		flags.width--;
 		len++;
 	}
-	while (flags.width - numlen(ap) > 0)
+	while (flags.width - numlen(ap) > len)
 	{
 		write(1, " ", 1);
-		flags.width--;
 		len++;
 	}
-	flags.zero_true = 0;
-	flags.minus_true = 0;
 	len--;
 	return (len);
 }
 
 int	print_width_str(char *str)
 {
-	size_t len;
+	int	len;
+	int		strlen;
 
 	len = 0;
-	while (flags.width - ft_strlen(str) < 0 && flags.zero_true == 1)
+	strlen = ft_strlen(str);
+	while (flags.width - strlen > len && flags.zero_true == 1)
 	{
 		write(1, "0", 1);
-		flags.width--;
 		len++;
 	}
-	while (flags.width - ft_strlen(str) < 0)
+	while (flags.width - strlen > len)
 	{
 		write(1, " ", 1);
-		flags.width--;
 		len++;
 	}
-	flags.zero_true = 0;
-	flags.minus_true = 0;
 	len--;
 	return (len);
 }

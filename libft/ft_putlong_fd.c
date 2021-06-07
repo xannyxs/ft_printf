@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/20 14:58:40 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/06 12:33:33 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/07 14:37:31 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_putlong_fd(long n, int fd, size_t len)
 {
-	long i;
+	long	i;
 
 	i = n;
 	if (i > 9)
