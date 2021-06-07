@@ -12,6 +12,9 @@ SRCS	=	src/printf.c \
 			libft/ft_putlong_fd.c \
 			libft/ft_strlen.c \
 			libft/ft_strdup.c \
+			libft/ft_putstr_fd.c \
+			src/print/print_u.c \
+			src/print/print_c.c \
 
 OBJS	=	$(SRCS:.c=.o)
 

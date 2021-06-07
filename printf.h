@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/24 19:26:37 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/06 13:59:59 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/07 11:48:20 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	width(char **str);
 
 int		ft_atoi(const char *str);
 
-int		print_width(int ap);
+int		print_width_int(int ap);
 
 int		numlen(int number);
 
@@ -55,5 +55,19 @@ int		print_width_str(char *str);
 size_t	ft_strlen(char const *str);
 
 char	*ft_strdup(const char *s1);
+
+void	ft_putstr_fd(char *s, int fd);
+
+size_t	print_x(va_list ap, int check);
+
+int		convert_hex(long number, int check);
+
+size_t	print_p(va_list ap);
+
+int		convert_p(unsigned long long number);
+
+size_t	print_u(va_list ap);
+
+size_t	print_c(va_list ap);
 
 #endif

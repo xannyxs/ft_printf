@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/30 17:40:20 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/06 14:01:10 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/07 12:12:13 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void width(char **str)
 		(*str)++;
 }
 
-int	print_width(int ap)
+int	print_width_int(int ap)
 {
 	size_t len;
 
@@ -47,6 +47,7 @@ int	print_width(int ap)
 		len++;
 	}
 	flags.zero_true = 0;
+	flags.minus_true = 0;
 	len--;
 	return (len);
 }
@@ -56,19 +57,20 @@ int	print_width_str(char *str)
 	size_t len;
 
 	len = 0;
-	while (flags.width - ft_strlen(str) > 0 && flags.zero_true == 1)
+	while (flags.width - ft_strlen(str) < 0 && flags.zero_true == 1)
 	{
 		write(1, "0", 1);
 		flags.width--;
 		len++;
 	}
-	while (flags.width - ft_strlen(str) > 0)
+	while (flags.width - ft_strlen(str) < 0)
 	{
 		write(1, " ", 1);
 		flags.width--;
 		len++;
 	}
 	flags.zero_true = 0;
+	flags.minus_true = 0;
 	len--;
 	return (len);
 }

@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 16:21:50 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/06 12:50:30 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/07 11:50:37 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,13 @@ int		convert_hex(long number, int check)
 int		convert_p(unsigned long long number)
 {
 	const char	*nocaps_digits;
-	int			check;
 	size_t		len;
 
-	check = 0;
 	len = 3;
 	nocaps_digits = "0123456789abcdef";
 	write(1, "0x", 2);
 	if (number > 15)
-		len = convert_hex(number / 16, check) + len;
+		len = convert_hex(number / 16, 0) + len;
 	number = number % 16;
 	write(1, &nocaps_digits[number], 1);
 	return (len);
@@ -51,47 +49,27 @@ int		convert_p(unsigned long long number)
 
 int	conversion(char *str, va_list ap)
 {
-	int			i;
-	char		flag_c;
-	long long	hex;
+	size_t		len;
 
-	i = 0;
-	hex = 0;
+	len = 0;
 	if (*str == 's')
-		i = print_s(ap);
+		len = print_s(ap);
 	else if (*str == 'i' || *str == 'd')
-		i = print_id(ap);
+		len = print_id(ap);
 	else if (*str == 'c')
-	{
-		flag_c = va_arg(ap, int);
-		write(1, &flag_c, 1);
-		i++;
-	}
+		len = print_c(ap);
 	else if (*str == '%')
 	{
 		ft_putchar_fd('%', 1);
-		i++;
+		len++;
 	}
 	else if (*str == 'x')
-	{
-		hex = (unsigned int) va_arg(ap, int);
-		i = convert_hex(hex, 0);
-	}
+		len = print_x(ap, 0);
 	else if (*str == 'X')
-	{
-		hex = (unsigned int) va_arg(ap, int);
-		i = convert_hex(hex, 1);
-	}
+		len = print_x(ap, 1);
 	else if (*str == 'p')
-	{
-		hex = (unsigned long long) va_arg(ap, void *);
-		i = convert_p(hex);
-	}
+		len = print_p(ap);
 	else if (*str == 'u')
-	{
-		hex = (unsigned int) va_arg(ap, int);
-		i = ft_putlong_fd(hex, 1, 0);
-		i--;
-	}
-	return (i);
+		len = print_u(ap);
+	return (len);
 }
