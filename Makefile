@@ -4,6 +4,7 @@ SRCS	=	src/printf.c \
 			src/conversion.c \
 			src/width.c \
 			src/ft_numlen.c \
+			src/flag.c \
 			src/print/print_id.c \
 			libft/ft_atoi.c \
 			libft/ft_putchar_fd.c \
@@ -13,11 +14,14 @@ SRCS	=	src/printf.c \
 			libft/ft_strlen.c \
 			libft/ft_strdup.c \
 			libft/ft_putstr_fd.c \
+			libft/ft_isdigit.c \
 			src/print/print_u.c \
 			src/print/print_c.c \
 			src/print/print_s.c \
 			src/print/print_x.c \
 			src/print/print_p.c \
+			src/width/print_width_str.c \
+			src/width/print_width_int.c \
 
 OBJS	=	$(SRCS:.c=.o)
 

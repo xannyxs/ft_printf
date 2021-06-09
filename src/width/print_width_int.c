@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   print_p.c                                          :+:    :+:            */
+/*   print_width_int.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/06/07 16:04:30 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/09 20:23:49 by xvoorvaa      ########   odam.nl         */
+/*   Created: 2021/06/09 19:38:49 by xvoorvaa      #+#    #+#                 */
+/*   Updated: 2021/06/09 19:39:54 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../printf.h"
 
-/*
-	Printf cannot work with 0 and p together. For example, "%015p".
-	It should show an ERROR.
-*/
-
-size_t	print_p(va_list ap)
+int	print_width_int(int ap)
 {
-	size_t				len;
-	unsigned long long	hex;
+	int	len;
 
 	len = 0;
-	hex = (unsigned long long) va_arg(ap, void *);
-	flags.width = flags.width - 2;
-	flags.zero_true = 0;
-	if (flags.minus_true == 1)
+	while (flags.width - numlen(ap) > len && flags.zero_true == 1)
 	{
-		len = convert_p(hex);
-		len = print_width_int(hex) + len;
+		write(1, "0", 1);
+		len++;
 	}
-	else
+	while (flags.width - numlen(ap) > len)
 	{
-		len = print_width_int(hex);
-		len = convert_p(hex) + len;
+		write(1, " ", 1);
+		len++;
 	}
-	len++;
+	len--;
 	return (len);
 }

@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/24 19:26:37 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/07 16:01:34 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/09 20:45:09 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
+# define FLAGS "-0"
 # define CONV "cspdiuxX%"
-# define WIDTH "-0123456789"
+# define WIDTH "*123456789"
 
 struct s_flags
 {
 	int	width;
+	int	precision;
 	int	minus_true;
 	int	zero_true;
 }		flags;
@@ -38,7 +40,7 @@ int		ft_putnbr_fd(int n, int fd, size_t len);
 
 int		ft_putlong_fd(long n, int fd, size_t len);
 
-void	width(char **str);
+int		width(char **str, va_list ap);
 
 int		ft_atoi(const char *str);
 
@@ -69,5 +71,9 @@ int		convert_p(unsigned long long number);
 size_t	print_u(va_list ap);
 
 size_t	print_c(va_list ap);
+
+void	flag(char **str);
+
+int		ft_isdigit(int argc);
 
 #endif
