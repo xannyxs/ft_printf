@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/24 19:26:37 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/10 11:09:19 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/10 15:26:45 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # define FLAGS "-0"
 # define CONV "cspdiuxX%"
 # define WIDTH ".*123456789"
+
+// t_flags
 
 struct s_flags
 {
@@ -75,5 +77,7 @@ size_t	print_c(va_list ap);
 void	flag(char **str);
 
 int		ft_isdigit(int argc);
+
+void	ft_putstr_precision(char *s, int fd);
 
 #endif

@@ -15,6 +15,7 @@ SRCS	=	src/printf.c \
 			libft/ft_strdup.c \
 			libft/ft_putstr_fd.c \
 			libft/ft_isdigit.c \
+			libft/ft_putstr_precision.c \
 			src/print/print_u.c \
 			src/print/print_c.c \
 			src/print/print_s.c \

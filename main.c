@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 14:33:18 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/10 11:11:59 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/10 16:05:58 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int	main(void)
 
 	c = 'i';
 	ptr = "Xander";
-	swag = 433;
+	swag = 43;
 	printf("\n--- FT_PRINTF ---\n\n");
-	ft_print = ft_printf("%.5d --", swag);
+	ft_print = ft_printf("%9.1s --", ptr);
 	printf("\n\n--- PRINTF ---\n\n");
-	print = printf("%.5d --", swag);
+	print = printf("%9.1s --", ptr);
 	printf("\n\n");
 	printf("ft_printf return: %d\n", ft_print);
 	printf("printf return: %d\n", print);

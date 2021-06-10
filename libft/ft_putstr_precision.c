@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   print_width_str.c                                  :+:    :+:            */
+/*   ft_putstr_precision.c                              :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/06/09 19:37:27 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/10 16:05:07 by xvoorvaa      ########   odam.nl         */
+/*   Created: 2021/06/07 09:51:00 by xvoorvaa      #+#    #+#                 */
+/*   Updated: 2021/06/10 15:28:47 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../printf.h"
+#include "../printf.h"
 
-int	print_width_str(char *str)
+void	ft_putstr_precision(char *s, int fd)
 {
-	int	len;
-	int	strlen;
-
-	len = 0;
-	strlen = ft_strlen(str);
-	while (flags.width - strlen + flags.precision > len && flags.zero_true == 1)
+	if (!s)
+		return ;
+	while (*s != '\0' && flags.precision > 0)
 	{
-		write(1, "0", 1);
-		len++;
+		write(fd, s, 1);
+		s++;
+		flags.precision--;
 	}
-	while (flags.width - strlen > len || flags.width - flags.precision > len)
-	{
-		write(1, " ", 1);
-		len++;
-	}
-	len--;
-	return (len);
 }
