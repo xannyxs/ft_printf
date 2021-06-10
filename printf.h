@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/24 19:26:37 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/09 20:45:09 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/10 11:09:19 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # define FLAGS "-0"
 # define CONV "cspdiuxX%"
-# define WIDTH "*123456789"
+# define WIDTH ".*123456789"
 
 struct s_flags
 {
