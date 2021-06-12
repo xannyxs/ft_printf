@@ -6,31 +6,38 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 15:57:00 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/10 15:29:26 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/12 15:39:18 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../printf.h"
 
+/*
+	Tijdelijke oplossing met "Flags.len". Neem het ook over voor de rest.
+*/
+
 int	print_s(va_list ap)
 {
-	size_t	len;
 	char	*ptr;
 	char	*str;
 
-	len = 0;
 	ptr = va_arg(ap, char *);
 	str = ft_strdup(ptr);
 	if (flags.minus_true == 1)
 	{
-		ft_putstr_fd(ptr, 1);
-		len = print_width_str(str) + ft_strlen(ptr);
+		if (flags.precision > 0)
+			ft_putstr_precision(ptr, 1);
+		else
+			ft_putstr_fd(ptr, 1);
+		flags.len = print_width_str(str) + flags.len;
 	}
 	else
 	{
-		len = print_width_str(str) + ft_strlen(ptr);
-		ft_putstr_precision(ptr, 1);
+		flags.len = print_width_str(str) + flags.len;
+		if (flags.precision > 0)
+			ft_putstr_precision(ptr, 1);
+		else
+			ft_putstr_fd(ptr, 1);
 	}
-	len++;
-	return (len);
+	return (flags.len);
 }

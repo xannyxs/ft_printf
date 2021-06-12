@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/24 19:26:37 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/10 15:26:45 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/12 18:16:16 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ struct s_flags
 	int	precision;
 	int	minus_true;
 	int	zero_true;
+	size_t len;
 }		flags;
 
 int		ft_printf(const char *str, ...);
@@ -46,9 +47,9 @@ int		width(char **str, va_list ap);
 
 int		ft_atoi(const char *str);
 
-int		print_width_int(int ap);
+int		print_width_int(long long ap);
 
-int		numlen(int number);
+int		numlen(long long number);
 
 int		print_id(va_list ap);
 

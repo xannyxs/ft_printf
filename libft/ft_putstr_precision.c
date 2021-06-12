@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 09:51:00 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/10 15:28:47 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/12 16:21:44 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,16 @@
 
 void	ft_putstr_precision(char *s, int fd)
 {
+	int	i;
+
+	i = 0;
 	if (!s)
 		return ;
-	while (*s != '\0' && flags.precision > 0)
+	while (*s != '\0' && flags.precision > i)
 	{
 		write(fd, s, 1);
 		s++;
-		flags.precision--;
+		flags.len++;
+		i++;
 	}
 }

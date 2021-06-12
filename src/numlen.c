@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_numlen.c                                        :+:    :+:            */
+/*   numlen.c                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/30 18:15:49 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/05/30 20:17:08 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/12 18:15:50 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	numlen(int number)
+int	numlen(long long number)
 {
 	int	len;
 

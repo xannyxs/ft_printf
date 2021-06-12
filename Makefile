@@ -3,7 +3,7 @@ CFLAGS	=	-Wall -Werror -Wextra
 SRCS	=	src/printf.c \
 			src/conversion.c \
 			src/width.c \
-			src/ft_numlen.c \
+			src/numlen.c \
 			src/flag.c \
 			src/print/print_id.c \
 			libft/ft_atoi.c \
