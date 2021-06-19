@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 15:11:49 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/09 20:05:09 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/19 14:09:40 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	check_perc(char *str, va_list ap)
 			if (ft_strchr(FLAGS, *str))
 				flag(&str);
 			if (ft_strchr(WIDTH, *str))
-				len = width(&str, ap) + len;
+				len = check_precision_width(&str, ap) + len;
 			if (ft_strchr(CONV, *str))
 				len = conversion(str, ap) + len;
 		}

@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/24 19:26:37 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/12 18:16:16 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/19 14:09:07 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		ft_putnbr_fd(int n, int fd, size_t len);
 
 int		ft_putlong_fd(long n, int fd, size_t len);
 
-int		width(char **str, va_list ap);
+int		check_precision_width(char **str, va_list ap);
 
 int		ft_atoi(const char *str);
 
