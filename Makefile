@@ -23,6 +23,7 @@ SRCS	=	src/printf.c \
 			src/print/print_p.c \
 			src/width/print_width_str.c \
 			src/width/print_width_int.c \
+			src/width/print_width_unsigned.c \
 
 OBJS	=	$(SRCS:.c=.o)
 

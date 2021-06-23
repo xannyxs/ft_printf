@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   print_width_int.c                                  :+:    :+:            */
+/*   print_width_unsigned.c                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/09 19:38:49 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/23 21:10:24 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/23 21:11:59 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../printf.h"
 
-int	print_width_int(long long ap)
+int	print_width_unsigned(unsigned long long ap)
 {
 	int	len;
 	int	remaining;
@@ -39,3 +39,4 @@ int	print_width_int(long long ap)
 	len--;
 	return (len);
 }
+

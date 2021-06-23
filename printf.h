@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/24 19:26:37 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/19 14:09:07 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/23 21:05:51 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,11 @@ void	flag(char **str);
 int		ft_isdigit(int argc);
 
 void	ft_putstr_precision(char *s, int fd);
+
+int		print_width_unsigned(unsigned long long ap);
+
+int		unsigned_numlen(unsigned long long number);
+
+int		remaining(int numlen);
 
 #endif
