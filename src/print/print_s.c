@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 15:57:00 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/12 15:39:18 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/24 18:04:28 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	print_s(va_list ap)
 	char	*str;
 
 	ptr = va_arg(ap, char *);
+	if (ptr == NULL)
+		ptr = "(null)";
 	str = ft_strdup(ptr);
 	if (flags.minus_true == 1)
 	{

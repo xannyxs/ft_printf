@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/24 19:26:37 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/23 21:05:51 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/24 17:27:02 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,7 @@ int		print_width_unsigned(unsigned long long ap);
 int		unsigned_numlen(unsigned long long number);
 
 int		remaining(int numlen);
+
+void	print_null(void);
 
 #endif
