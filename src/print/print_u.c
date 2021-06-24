@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 11:27:44 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/23 19:27:30 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/24 15:19:03 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,5 @@ size_t	print_u(va_list ap)
 		}
 		len = ft_putlong_fd(hex, 1, 0) + len;
 	}
-	return (len + 1);
+	return (len + i);
 }

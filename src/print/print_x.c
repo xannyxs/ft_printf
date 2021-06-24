@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 16:02:52 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/07 16:03:17 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/24 15:36:55 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,30 @@ size_t	print_x(va_list ap, int check)
 {
 	size_t	len;
 	int		hex;
+	int		i;
 
 	len = 0;
+	i = 0;
 	hex = va_arg(ap, int);
 	if (flags.minus_true == 1)
 	{
+		while (flags.precision - numlen(hex) > i)
+		{
+			write(1, "0", 1);
+			i++;
+		}
 		len = convert_hex(hex, check);
 		len = print_width_int(hex) + len;
 	}
 	else
 	{
 		len = print_width_int(hex);
+		while (flags.precision - numlen(hex) > i)
+		{
+			write(1, "0", 1);
+			i++;
+		}
 		len = convert_hex(hex, check) + len;
 	}
-	len++;
-	return (len);
+	return (len + i);
 }

@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 16:04:30 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/09 20:23:49 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/24 15:57:18 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 /*
 	Printf cannot work with 0 and p together. For example, "%015p".
+	Precision is also not an option.
 	It should show an ERROR.
 */
 
@@ -36,6 +37,5 @@ size_t	print_p(va_list ap)
 		len = print_width_int(hex);
 		len = convert_p(hex) + len;
 	}
-	len++;
 	return (len);
 }

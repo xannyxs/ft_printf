@@ -6,11 +6,15 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/30 18:15:49 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/23 21:26:21 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/24 14:44:11 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+/*
+	LINE 22: Er komt een extra len bij door de '-'.
+*/
 
 int	numlen(long long number)
 {
@@ -25,7 +29,7 @@ int	numlen(long long number)
 	return (len);
 }
 
-int	unsigned_numlen(unsigned long long number) 
+int	unsigned_numlen(unsigned long long number)
 {
 	int	len;
 

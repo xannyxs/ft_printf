@@ -6,7 +6,7 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/03 17:12:39 by xander        #+#    #+#                 */
-/*   Updated: 2021/06/23 21:09:25 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/24 15:31:54 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 
 int	print_id(va_list ap)
 {
-	int	width;
 	int	number;
 	int	i;
+	int len;
 
 	i = 0;
+	len = 0;
 	number = va_arg(ap, int);
-	width = number;
 	if (flags.minus_true == 1)
 	{
 		while (flags.precision - numlen(number) > i)
@@ -32,20 +32,18 @@ int	print_id(va_list ap)
 			write(1, "0", 1);
 			i++;
 		}
-		number = ft_putnbr_fd(number, 1, 0);
-		width = print_width_int(width);
-		flags.minus_true = 0;
+		len = ft_putnbr_fd(number, 1, 0) + len;
+		len = print_width_int(number) + len;
 	}
 	else
 	{
-		width = print_width_int(number);
+		len = print_width_int(number) + len;
 		while (flags.precision - numlen(number) > i)
 		{
 			write(1, "0", 1);
 			i++;
 		}
-		number = ft_putnbr_fd(number, 1, 0);
+		len = ft_putnbr_fd(number, 1, 0) + len;
 	}
-	number = number + width + i + 1;
-	return (number);
+	return (len + i);
 }
