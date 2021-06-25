@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/24 19:26:37 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/24 17:27:02 by xander        ########   odam.nl         */
+/*   Updated: 2021/06/25 14:20:12 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
-# define FLAGS "-0"
+# define FLAGS "-0 "
 # define CONV "cspdiuxX%"
 # define WIDTH ".*123456789"
 
@@ -24,12 +24,12 @@
 
 struct s_flags
 {
-	int	width;
-	int	precision;
-	int	minus_true;
-	int	zero_true;
-	size_t len;
-}		flags;
+	int		width;
+	int		precision;
+	int		minus_true;
+	int		zero_true;
+	size_t	len;
+}			flags;
 
 int		ft_printf(const char *str, ...);
 
@@ -88,5 +88,7 @@ int		unsigned_numlen(unsigned long long number);
 int		remaining(int numlen);
 
 void	print_null(void);
+
+size_t	print_perc(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 16:21:50 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/07 14:33:04 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/25 11:00:16 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,7 @@ int	conversion(char *str, va_list ap)
 	else if (*str == 'c')
 		len = print_c(ap);
 	else if (*str == '%')
-	{
-		ft_putchar_fd('%', 1);
-		len++;
-	}
+		len = print_perc();
 	else if (*str == 'x')
 		len = print_x(ap, 0);
 	else if (*str == 'X')

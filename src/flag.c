@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/09 19:03:31 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/09 20:01:56 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/25 14:45:33 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,24 @@
 
 void	flag(char **str)
 {
+	while (**str == ' ')
+	{
+		write(1, " ", 1);
+		(*str)++;
+	}
 	if (**str == '-')
+	{
 		flags.minus_true = 1;
+		(*str)++;
+	}
 	if (**str == '0')
-		flags.zero_true = 1;
-	(*str)++;
+	{
+		if (flags.minus_true == 1)
+			(*str)++;
+		else
+		{
+			flags.zero_true = 1;
+			(*str)++;
+		}
+	}
 }

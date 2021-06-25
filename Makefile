@@ -21,6 +21,7 @@ SRCS	=	src/printf.c \
 			src/print/print_s.c \
 			src/print/print_x.c \
 			src/print/print_p.c \
+			src/print/print_perc.c \
 			src/width/print_width_str.c \
 			src/width/print_width_int.c \
 			src/width/print_width_unsigned.c \

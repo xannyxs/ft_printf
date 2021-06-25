@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 15:57:00 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/24 18:04:28 by xander        ########   odam.nl         */
+/*   Updated: 2021/06/25 11:40:44 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	print_s(va_list ap)
 	str = ft_strdup(ptr);
 	if (flags.minus_true == 1)
 	{
-		if (flags.precision > 0)
+		if (flags.precision != 0)
 			ft_putstr_precision(ptr, 1);
 		else
 			ft_putstr_fd(ptr, 1);
@@ -36,7 +36,7 @@ int	print_s(va_list ap)
 	else
 	{
 		flags.len = print_width_str(str) + flags.len;
-		if (flags.precision > 0)
+		if (flags.precision != 0)
 			ft_putstr_precision(ptr, 1);
 		else
 			ft_putstr_fd(ptr, 1);

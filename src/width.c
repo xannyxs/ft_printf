@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/30 17:40:20 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/19 14:10:50 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/25 11:27:18 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,13 @@ int	check_precision_width(char **str, va_list ap)
 		else if (ft_isdigit(*str[0]) == 1)
 		{
 			flags.precision = ft_atoi(str[0]);
+			if (flags.precision == 0)
+				flags.precision = -1;
 			while (*str[0] >= '0' && *str[0] <= '9')
 				(*str)++;
 		}
+		else
+			flags.precision = -1;
 	}
 	return (len);
 }

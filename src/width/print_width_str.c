@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/09 19:37:27 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/12 15:34:43 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/06/25 11:50:07 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	print_width_str(char *str)
 
 	len = 0;
 	strlen = ft_strlen(str);
+	if (flags.precision < 0)
+		strlen = 0;
 	if (flags.zero_true == 1)
 	{
 		while (flags.width - strlen > len
