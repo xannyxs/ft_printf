@@ -6,11 +6,12 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 14:33:18 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/25 14:49:35 by xander        ########   odam.nl         */
+/*   Updated: 2021/06/28 15:17:36 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
+#define INT_MAX 2147483647
 
 /*
 	WWPD?
@@ -29,9 +30,9 @@ int	main(void)
 	ptr = NULL;
 	swag = 4332;
 	printf("\n--- FT_PRINTF ---\n\n");
-	ft_print = ft_printf("%-5.0i --", 0);
+	ft_print = ft_printf("%08.5d", 34);
 	printf("\n\n--- PRINTF ---\n\n");
-	print = printf("%-5.0i --", 0);
+	print = printf("%08.5d", 34);
 	printf("\n\n");
 	printf("ft_printf return: %d\n", ft_print);
 	printf("printf return: %d\n", print);

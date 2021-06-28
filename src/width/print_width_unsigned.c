@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/09 19:38:49 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/24 15:14:27 by xander        ########   odam.nl         */
+/*   Updated: 2021/06/28 15:15:29 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	print_width_unsigned(unsigned long long ap)
 	remaining = 0;
 	if (flags.precision > numlen(ap))
 		remaining = flags.precision - numlen(ap);
-	while (flags.width - numlen(ap) > len && flags.zero_true == 1)
+	while (flags.width - numlen(ap) - flags.precision - 1 > len && flags.zero_true == 1)
 	{
 		write(1, "0", 1);
 		len++;

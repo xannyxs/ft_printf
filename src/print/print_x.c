@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 16:02:52 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/24 15:36:55 by xander        ########   odam.nl         */
+/*   Updated: 2021/06/28 12:31:27 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 size_t	print_x(va_list ap, int check)
 {
-	size_t	len;
-	int		hex;
-	int		i;
+	size_t		len;
+	long long	hex;
+	int			i;
 
 	len = 0;
 	i = 0;
@@ -28,7 +28,8 @@ size_t	print_x(va_list ap, int check)
 			write(1, "0", 1);
 			i++;
 		}
-		len = convert_hex(hex, check);
+		if (flags.precision > -1)
+			len = convert_hex(hex, check);
 		len = print_width_int(hex) + len;
 	}
 	else
@@ -39,7 +40,8 @@ size_t	print_x(va_list ap, int check)
 			write(1, "0", 1);
 			i++;
 		}
-		len = convert_hex(hex, check) + len;
+		if (flags.precision > -1)
+			len = convert_hex(hex, check) + len;
 	}
 	return (len + i);
 }

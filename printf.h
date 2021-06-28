@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/24 19:26:37 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/25 14:20:12 by xander        ########   odam.nl         */
+/*   Updated: 2021/06/28 14:48:11 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ struct s_flags
 	int		precision;
 	int		minus_true;
 	int		zero_true;
+	int		negative_true;
 	size_t	len;
 }			flags;
 
@@ -65,7 +66,7 @@ void	ft_putstr_fd(char *s, int fd);
 
 size_t	print_x(va_list ap, int check);
 
-int		convert_hex(long number, int check);
+int		convert_hex(long long number, int check);
 
 size_t	print_p(va_list ap);
 

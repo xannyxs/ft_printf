@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/09 19:38:49 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/25 13:59:33 by xander        ########   odam.nl         */
+/*   Updated: 2021/06/28 15:54:06 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	print_width_int(long long ap)
 {
 	int	len;
 	int	remaining;
-	int ft_numlen;
+	int	ft_numlen;
 
 	len = 0;
 	remaining = 0;
@@ -25,8 +25,13 @@ int	print_width_int(long long ap)
 		ft_numlen = 0;
 	if (flags.precision > ft_numlen)
 		remaining = flags.precision - ft_numlen;
-	while (flags.width - ft_numlen > len && flags.zero_true == 1)
+	while (flags.width - ft_numlen - flags.precision > len && flags.zero_true == 1 && flags.precision <= 0)
 	{
+		if (flags.negative_true == 1)
+		{
+			write(1, "-", 1);
+			flags.negative_true = 0;
+		}
 		write(1, "0", 1);
 		len++;
 	}
@@ -39,6 +44,11 @@ int	print_width_int(long long ap)
 	{
 		write(1, " ", 1);
 		len++;
+	}
+	if (flags.negative_true == 1)
+	{
+		write(1, "-", 1);
+		flags.negative_true = 0;
 	}
 	return (len);
 }

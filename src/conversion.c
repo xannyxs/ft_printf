@@ -6,13 +6,13 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 16:21:50 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/25 11:00:16 by xander        ########   odam.nl         */
+/*   Updated: 2021/06/28 12:16:57 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
-int	convert_hex(long number, int check)
+int	convert_hex(long long number, int check)
 {
 	const char	*caps_digits;
 	const char	*nocaps_digits;
