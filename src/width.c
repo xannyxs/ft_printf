@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/30 17:40:20 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/25 11:27:18 by xander        ########   odam.nl         */
+/*   Updated: 2021/07/05 23:22:19 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int	check_precision_width(char **str, va_list ap)
 			flags.precision = va_arg(ap, int);
 			if (flags.precision < 0)
 				flags.precision = 0;
+			else if (flags.precision == 0)
+				flags.precision = -1;
 			(*str)++;
 		}
 		else if (ft_isdigit(*str[0]) == 1)

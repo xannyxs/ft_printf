@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 11:27:44 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/07/01 15:25:21 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/07/05 22:56:48 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ size_t	print_u_normal(unsigned long long hex)
 		write(1, "0", 1);
 		i++;
 	}
-	len = ft_putlong_fd(hex, 1, 0) + len;
+	if (flags.precision > -1)
+		len = ft_putlong_fd(hex, 1, 0) + len;
 	return (len + i);
 }
 
@@ -34,12 +35,14 @@ size_t	print_u_minus(unsigned long long hex)
 	int	len;
 
 	i = 0;
+	len = 0;
 	while (flags.precision - unsigned_numlen(hex) > i)
 	{
 		write(1, "0", 1);
 		i++;
 	}
-	len = ft_putlong_fd(hex, 1, 0);
+	if (flags.precision > -1)
+		len = ft_putlong_fd(hex, 1, 0);
 	len = print_width_unsigned(hex) + len;
 	return (len + i);
 }
