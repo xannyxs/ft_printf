@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 09:51:00 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/12 14:59:26 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/07/05 23:59:08 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	ft_putstr_fd(char *s, int fd)
 	{
 		write(fd, s, 1);
 		s++;
-		flags.len++;
+		t_flags.len++;
 	}
 }

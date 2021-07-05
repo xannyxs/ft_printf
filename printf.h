@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/24 19:26:37 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/28 14:48:11 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/07/05 23:55:00 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 # define CONV "cspdiuxX%"
 # define WIDTH ".*123456789"
 
-// t_flags
-
 struct s_flags
 {
 	int		width;
@@ -30,7 +28,7 @@ struct s_flags
 	int		zero_true;
 	int		negative_true;
 	size_t	len;
-}			flags;
+}			t_flags;
 
 int		ft_printf(const char *str, ...);
 
@@ -44,7 +42,7 @@ int		ft_putnbr_fd(int n, int fd, size_t len);
 
 int		ft_putlong_fd(long n, int fd, size_t len);
 
-int		check_precision_width(char **str, va_list ap);
+void	check_precision_width(char **str, va_list ap);
 
 int		ft_atoi(const char *str);
 

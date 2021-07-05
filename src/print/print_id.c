@@ -6,7 +6,7 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/03 17:12:39 by xander        #+#    #+#                 */
-/*   Updated: 2021/07/01 15:24:57 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/07/05 23:56:53 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ int	print_id_minus(int number)
 		write(1, "-", 1);
 		number = number * -1;
 		len++;
-		flags.width--;
+		t_flags.width--;
 	}
-	while (flags.precision - numlen(number) > i)
+	while (t_flags.precision - numlen(number) > i)
 	{
 		write(1, "0", 1);
 		i++;
 	}
-	if (flags.precision > -1)
+	if (t_flags.precision > -1)
 		len = ft_putnbr_fd(number, 1, 0) + len;
 	len = print_width_int(number) + len;
 	return (len + i);
@@ -48,16 +48,16 @@ int	print_id_normal(int number)
 	{
 		number = number * -1;
 		len++;
-		flags.width--;
-		flags.negative_true = 1;
+		t_flags.width--;
+		t_flags.negative_true = 1;
 	}
 	len = print_width_int(number) + len;
-	while (flags.precision - numlen(number) > i)
+	while (t_flags.precision - numlen(number) > i)
 	{
 		write(1, "0", 1);
 		i++;
 	}
-	if (flags.precision > -1)
+	if (t_flags.precision > -1)
 		len = ft_putnbr_fd(number, 1, 0) + len;
 	return (len + i);
 }
@@ -69,7 +69,7 @@ int	print_id(va_list ap)
 
 	len = 0;
 	number = va_arg(ap, int);
-	if (flags.minus_true == 1)
+	if (t_flags.minus_true == 1)
 		len = print_id_minus(number) + len;
 	else
 		len = print_id_normal(number) + len;

@@ -6,34 +6,34 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/09 19:38:49 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/07/05 23:39:58 by xander        ########   odam.nl         */
+/*   Updated: 2021/07/06 00:02:46 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../printf.h"
 
-int	print_space(int ft_numlen, int remaining)
+int	print_space(int numlen, int remaining)
 {
 	int	len;
 
 	len = 0;
-	while (flags.width - ft_numlen - flags.precision > len
-		&& flags.zero_true == 1 && flags.precision <= 0)
+	while (t_flags.width - numlen - t_flags.precision > len
+		&& t_flags.zero_true == 1 && t_flags.precision <= 0)
 	{
-		if (flags.negative_true == 1)
+		if (t_flags.negative_true == 1)
 		{
 			write(1, "-", 1);
-			flags.negative_true = 0;
+			t_flags.negative_true = 0;
 		}
 		write(1, "0", 1);
 		len++;
 	}
-	while (flags.width - ft_numlen > len && flags.precision == 0)
+	while (t_flags.width - numlen > len && t_flags.precision == 0)
 	{
 		write(1, " ", 1);
 		len++;
 	}
-	while (flags.width - ft_numlen - remaining > len && flags.precision != 0)
+	while (t_flags.width - numlen - remaining > len && t_flags.precision != 0)
 	{
 		write(1, " ", 1);
 		len++;
@@ -50,15 +50,15 @@ int	print_width_int(long long ap)
 	len = 0;
 	remaining = 0;
 	ft_numlen = numlen(ap);
-	if (flags.precision < 0)
+	if (t_flags.precision < 0)
 		ft_numlen = 0;
-	if (flags.precision > ft_numlen)
-		remaining = flags.precision - ft_numlen;
+	if (t_flags.precision > ft_numlen)
+		remaining = t_flags.precision - ft_numlen;
 	len = print_space(ft_numlen, remaining) + len;
-	if (flags.negative_true == 1)
+	if (t_flags.negative_true == 1)
 	{
 		write(1, "-", 1);
-		flags.negative_true = 0;
+		t_flags.negative_true = 0;
 	}
 	return (len);
 }

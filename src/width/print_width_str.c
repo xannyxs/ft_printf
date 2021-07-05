@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/09 19:37:27 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/25 11:50:07 by xander        ########   odam.nl         */
+/*   Updated: 2021/07/06 00:01:57 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,20 @@ int	print_width_str(char *str)
 
 	len = 0;
 	strlen = ft_strlen(str);
-	if (flags.precision < 0)
+	if (t_flags.precision < 0)
 		strlen = 0;
-	if (flags.zero_true == 1)
+	if (t_flags.zero_true == 1)
 	{
-		while (flags.width - strlen > len
-			|| (flags.width - flags.precision > len && flags.precision > 0))
+		while (t_flags.width - strlen > len
+			|| (t_flags.width - t_flags.precision > len
+				&& t_flags.precision > 0))
 		{
 			write(1, "0", 1);
 			len++;
 		}
 	}
-	while (flags.width - strlen > len
-		|| (flags.width - flags.precision > len && flags.precision > 0))
+	while (t_flags.width - strlen > len
+		|| (t_flags.width - t_flags.precision > len && t_flags.precision > 0))
 	{
 		write(1, " ", 1);
 		len++;
