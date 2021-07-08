@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 16:21:50 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/28 12:16:57 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/07/07 21:02:41 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,6 @@ int	convert_hex(long long number, int check)
 	else if (check == 0)
 		write(1, &nocaps_digits[number], 1);
 	len++;
-	return (len);
-}
-
-int	convert_p(unsigned long long number)
-{
-	const char	*nocaps_digits;
-	size_t		len;
-
-	len = 3;
-	nocaps_digits = "0123456789abcdef";
-	write(1, "0x", 2);
-	if (number > 15)
-		len = convert_hex(number / 16, 0) + len;
-	number = number % 16;
-	write(1, &nocaps_digits[number], 1);
 	return (len);
 }
 

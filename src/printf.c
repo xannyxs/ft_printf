@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 15:11:49 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/07/05 23:58:15 by xander        ########   odam.nl         */
+/*   Updated: 2021/07/06 17:09:42 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ void	reset_struct(void)
 
 int	check_perc(char *str, va_list ap)
 {
-	size_t	len;
+	int	len;
 
+	len = 0;
 	while (*str != '\0')
 	{
 		if (*str == '%')
@@ -50,7 +51,7 @@ int	ft_printf(const char *str, ...)
 {
 	va_list	arg;
 	char	*ptr;
-	size_t	len;
+	int		len;
 
 	len = 0;
 	ptr = (char *) str;

@@ -35,13 +35,13 @@ $(NAME):	$(OBJS)
 
 compile:
 			gcc $(CFLAGS) $(SRCS) main.c -o ft_printf
+
 clean:
 			rm -f $(OBJS)
 
 fclean:
-			rm -f compile
+			rm -f $(OBJS) libftprintf.a
 
-re:
-			fclean $(NAME)
+re:			fclean $(NAME)
 
 .PHONY:		all clean fclean re
