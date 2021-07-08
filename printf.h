@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/24 19:26:37 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/07/08 16:28:29 by xander        ########   odam.nl         */
+/*   Updated: 2021/07/08 16:43:25 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ struct s_flags
 	int		minus_true;
 	int		zero_true;
 	int		negative_true;
-	int		p_true;
 	size_t	len;
 }			t_flags;
 

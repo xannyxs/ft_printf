@@ -40,7 +40,7 @@ clean:
 			rm -f $(OBJS)
 
 fclean:
-			rm -f $(OBJS) libftprintf.a
+			rm -f $(OBJS) libftprintf.a ft_printf
 
 re:			fclean $(NAME)
 

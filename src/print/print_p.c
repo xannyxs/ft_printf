@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 16:04:30 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/07/08 16:31:25 by xander        ########   odam.nl         */
+/*   Updated: 2021/07/08 16:49:06 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ size_t	print_p(va_list ap)
 	hex = (unsigned long long) va_arg(ap, void *);
 	t_flags.width = t_flags.width - 1;
 	t_flags.zero_true = 0;
+	if (hex == 0)
+		t_flags.width--;
 	if (t_flags.minus_true == 1)
 	{
 		write(1, "0x", 2);

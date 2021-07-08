@@ -15,12 +15,12 @@ int	main(void)
 	char			c;
 
 	c = 'i';
-	ptr = "Tijmen";
+	ptr = "Xander";
 	swag = 4332;
 	printf("\n--- FT_PRINTF ---\n\n");
-	ft_print = ft_printf("%15p", ptr);
+	ft_print = ft_printf("|| %0*d ||", -7, -54);
 	printf("\n\n--- PRINTF ---\n\n");
-	print = printf("%15p", ptr);
+	print = printf("|| %0*d ||", -7, -54);
 	printf("\n\n");
 	printf("ft_printf return: %d\n", ft_print);
 	printf("printf return: %d\n", print);

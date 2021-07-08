@@ -6,7 +6,7 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/03 17:12:39 by xander        #+#    #+#                 */
-/*   Updated: 2021/07/05 23:56:53 by xander        ########   odam.nl         */
+/*   Updated: 2021/07/08 17:36:14 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	print_id_minus(int number)
 
 	i = 0;
 	len = 0;
+	t_flags.zero_true = 0;
 	if (number < 0)
 	{
 		write(1, "-", 1);

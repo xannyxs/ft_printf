@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 16:02:52 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/07/05 23:57:17 by xander        ########   odam.nl         */
+/*   Updated: 2021/07/08 17:17:13 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 size_t	print_x_minus(long long hex, int check)
 {
-	int		i;
-	size_t	len;
+	int	i;
+	int	len;
 
 	i = 0;
 	len = 0;
@@ -32,11 +32,10 @@ size_t	print_x_minus(long long hex, int check)
 
 size_t	print_x_normal(long long hex, int check)
 {
-	int		i;
-	size_t	len;
+	int	i;
+	int	len;
 
 	i = 0;
-	len = 0;
 	len = print_width_int(hex);
 	while (t_flags.precision - numlen(hex) > i)
 	{
