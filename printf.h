@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/24 19:26:37 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/07/08 16:43:25 by xander        ########   odam.nl         */
+/*   Updated: 2021/07/08 18:56:29 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # define FLAGS "-0 "
 # define CONV "cspdiuxX%"
 # define WIDTH ".*123456789"
+# define INT_MAX 2147483647
 
 struct s_flags
 {
@@ -38,7 +39,7 @@ void	ft_putchar_fd(char c, int fd);
 
 char	*ft_strchr(const char *str, int c);
 
-int		ft_putnbr_fd(int n, int fd, size_t len);
+int		ft_putnbr_fd(long n, int fd, size_t len);
 
 int		ft_putlong_fd(long n, int fd, size_t len);
 
@@ -56,15 +57,15 @@ char	*ft_strdup(const char *s1);
 	PRINT_
 */
 
-size_t	print_p(va_list ap);
+int	print_p(va_list ap);
 
-size_t	print_x(va_list ap, int check);
+int	print_x(va_list ap, int check);
 
-size_t	print_u(va_list ap);
+int	print_u(va_list ap);
 
-size_t	print_c(va_list ap);
+int	print_c(va_list ap);
 
-int		print_id(va_list ap);
+int	print_id(va_list ap);
 
 int		print_s(va_list ap);
 

@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 11:47:14 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/07/05 23:56:54 by xander        ########   odam.nl         */
+/*   Updated: 2021/07/08 18:57:21 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 	It should show an ERROR.
 */
 
-size_t	print_c(va_list ap)
+int	print_c(va_list ap)
 {
 	int		flag_c;
 	size_t	len;

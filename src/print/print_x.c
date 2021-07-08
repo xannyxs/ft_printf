@@ -6,13 +6,13 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 16:02:52 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/07/08 17:17:13 by xander        ########   odam.nl         */
+/*   Updated: 2021/07/08 18:57:36 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../printf.h"
 
-size_t	print_x_minus(long long hex, int check)
+int	print_x_minus(long long hex, int check)
 {
 	int	i;
 	int	len;
@@ -30,7 +30,7 @@ size_t	print_x_minus(long long hex, int check)
 	return (len + i);
 }
 
-size_t	print_x_normal(long long hex, int check)
+int	print_x_normal(long long hex, int check)
 {
 	int	i;
 	int	len;
@@ -47,9 +47,9 @@ size_t	print_x_normal(long long hex, int check)
 	return (len + i);
 }
 
-size_t	print_x(va_list ap, int check)
+int	print_x(va_list ap, int check)
 {
-	size_t		len;
+	int			len;
 	long long	hex;
 	int			i;
 

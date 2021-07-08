@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 16:04:30 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/07/08 16:49:06 by xander        ########   odam.nl         */
+/*   Updated: 2021/07/08 18:56:35 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 	It should show an ERROR.
 */
 
-size_t	print_p(va_list ap)
+int	print_p(va_list ap)
 {
 	size_t				len;
 	unsigned long long	hex;
