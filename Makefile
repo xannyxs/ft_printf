@@ -1,32 +1,42 @@
 NAME	=	libftprintf.a
 CFLAGS	=	-Wall -Werror -Wextra
-SRCS	=	src/printf.c \
-			src/conversion.c \
-			src/width.c \
-			src/numlen.c \
-			src/flag.c \
-			src/print/print_id.c \
-			libft/ft_atoi.c \
-			libft/ft_putchar_fd.c \
-			libft/ft_putnbr_fd.c \
-			libft/ft_strchr.c \
-			libft/ft_putlong_fd.c \
-			libft/ft_strlen.c \
-			libft/ft_strdup.c \
-			libft/ft_putstr_fd.c \
-			libft/ft_isdigit.c \
-			libft/ft_putstr_precision.c \
-			src/print/print_u.c \
-			src/print/print_c.c \
-			src/print/print_s.c \
-			src/print/print_x.c \
-			src/print/print_p.c \
-			src/print/print_perc.c \
-			src/width/print_width_str.c \
-			src/width/print_width_int.c \
-			src/width/print_width_unsigned.c \
+SRCS	=	mandatory/libft/ft_atoi.c \
+			mandatory/libft/ft_putchar_fd.c \
+			mandatory/libft/ft_putnbr_fd.c \
+			mandatory/libft/ft_strchr.c \
+			mandatory/src/conversion.c \
+			mandatory/src/ft_numlen.c \
+			mandatory/src/printf.c \
+
+SRCSB	=	bonus/src/printf.c \
+			bonus/src/conversion.c \
+			bonus/src/width.c \
+			bonus/src/numlen.c \
+			bonus/src/flag.c \
+			bonus/src/print/print_id.c \
+			bonus/libft/ft_atoi.c \
+			bonus/libft/ft_putchar_fd.c \
+			bonus/libft/ft_putnbr_fd.c \
+			bonus/libft/ft_strchr.c \
+			bonus/libft/ft_putlong_fd.c \
+			bonus/libft/ft_strlen.c \
+			bonus/libft/ft_strdup.c \
+			bonus/libft/ft_putstr_fd.c \
+			bonus/libft/ft_isdigit.c \
+			bonus/libft/ft_putstr_precision.c \
+			bonus/src/print/print_u.c \
+			bonus/src/print/print_c.c \
+			bonus/src/print/print_s.c \
+			bonus/src/print/print_x.c \
+			bonus/src/print/print_p.c \
+			bonus/src/print/print_perc.c \
+			bonus/src/width/print_width_str.c \
+			bonus/src/width/print_width_int.c \
+			bonus/src/width/print_width_unsigned.c \
 
 OBJS	=	$(SRCS:.c=.o)
+
+OBJS_B	=	$(SRCSB:.c=.o)
 
 all:		$(NAME)
 
@@ -43,5 +53,8 @@ fclean:
 			rm -f $(OBJS) libftprintf.a ft_printf
 
 re:			fclean $(NAME)
+
+bonus:		$(OBJS_B)
+			ar rcs $(NAME) $(OBJS_B)
 
 .PHONY:		all clean fclean re
