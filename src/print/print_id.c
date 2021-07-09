@@ -6,11 +6,18 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/03 17:12:39 by xander        #+#    #+#                 */
-/*   Updated: 2021/07/08 18:55:59 by xander        ########   odam.nl         */
+/*   Updated: 2021/07/09 14:52:27 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../printf.h"
+#include <limits.h>
+
+int	print_max(void)
+{
+	write(1, "-2147483648", 11);
+	return (11);
+}
 
 int	print_id_minus(int number)
 {
@@ -70,7 +77,9 @@ int	print_id(va_list ap)
 
 	len = 0;
 	number = va_arg(ap, int);
-	if (t_flags.minus_true == 1)
+	if (number - 1 == INT_MAX)
+		len = print_max() + len;
+	else if (t_flags.minus_true == 1)
 		len = print_id_minus(number) + len;
 	else
 		len = print_id_normal(number) + len;

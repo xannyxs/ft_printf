@@ -6,20 +6,18 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/24 19:26:37 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/07/08 18:56:29 by xander        ########   odam.nl         */
+/*   Updated: 2021/07/09 14:49:25 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRINTF_H
 # define PRINTF_H
-# include <stdio.h>
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
 # define FLAGS "-0 "
 # define CONV "cspdiuxX%"
 # define WIDTH ".*123456789"
-# define INT_MAX 2147483647
 
 struct s_flags
 {
@@ -57,15 +55,15 @@ char	*ft_strdup(const char *s1);
 	PRINT_
 */
 
-int	print_p(va_list ap);
+int		print_p(va_list ap);
 
-int	print_x(va_list ap, int check);
+int		print_x(va_list ap, int check);
 
-int	print_u(va_list ap);
+int		print_u(va_list ap);
 
-int	print_c(va_list ap);
+int		print_c(va_list ap);
 
-int	print_id(va_list ap);
+int		print_id(va_list ap);
 
 int		print_s(va_list ap);
 

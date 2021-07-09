@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 11:27:44 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/07/08 18:56:52 by xander        ########   odam.nl         */
+/*   Updated: 2021/07/09 14:26:52 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	print_u_normal(unsigned long long hex)
 
 	i = 0;
 	len = 0;
-	if (t_flags.precision > -1)
+	if (t_flags.precision > -1 || t_flags.width > 0)
 		len = print_width_unsigned(hex);
 	while (t_flags.precision - unsigned_numlen(hex) > i)
 	{
