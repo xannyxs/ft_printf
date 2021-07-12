@@ -34,7 +34,7 @@ int	unsigned_numlen(unsigned long long number)
 	int	len;
 
 	len = 0;
-	if (number > 9 || number < 0)
+	if (number > 9)
 		len = unsigned_numlen(number / 10) + len;
 	len++;
 	return (len);
