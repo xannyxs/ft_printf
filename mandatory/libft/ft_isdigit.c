@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_numlen.c                                        :+:    :+:            */
+/*   ft_isdigit.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/05/30 18:15:49 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/05/30 20:17:08 by xvoorvaa      ########   odam.nl         */
+/*   Created: 2021/06/09 19:50:34 by xvoorvaa      #+#    #+#                 */
+/*   Updated: 2021/06/09 19:51:42 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int	numlen(int number)
+int	ft_isdigit(int argc)
 {
-	int	len;
-
-	len = 0;
-	if (number > 9)
-		len = numlen(number / 10) + len;
-	len++;
-	return (len);
+	if (argc < '0' || argc > '9')
+		return (0);
+	return (1);
 }

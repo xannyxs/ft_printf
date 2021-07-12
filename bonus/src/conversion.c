@@ -6,11 +6,12 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 16:21:50 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/07/09 18:38:20 by xander        ########   odam.nl         */
+/*   Updated: 2021/07/12 14:59:02 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../printf.h"
+#include "../../conversions.h"
 
 int	convert_hex(long long number, int check)
 {
@@ -32,26 +33,24 @@ int	convert_hex(long long number, int check)
 	return (len);
 }
 
-int	conversion(char *str, va_list ap)
+int conversion(char *str, va_list ap)
 {
-	size_t	len;
+	int	i;
+	int len;
 
+	i = 0;
 	len = 0;
-	if (*str == 's')
-		len = print_s(ap);
-	else if (*str == 'i' || *str == 'd')
-		len = print_id(ap);
-	else if (*str == 'c')
-		len = print_c(ap);
-	else if (*str == '%')
-		len = print_perc();
-	else if (*str == 'x')
+	while (s_conversions[i].key)
+	{
+		if (*str == s_conversions[i].key)
+			len = s_conversions[i].func(ap);
+		i++;
+	}
+	if (*str == 'x')
 		len = print_x(ap, 0);
 	else if (*str == 'X')
 		len = print_x(ap, 1);
-	else if (*str == 'p')
-		len = print_p(ap);
-	else if (*str == 'u')
-		len = print_u(ap);
+	else if (*str == '%')
+		len = print_perc();
 	return (len);
 }

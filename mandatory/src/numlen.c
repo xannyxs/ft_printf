@@ -1,50 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   printf.c                                           :+:    :+:            */
+/*   numlen.c                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/05/27 15:11:49 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/07/12 13:27:08 by xander        ########   odam.nl         */
+/*   Created: 2021/05/30 18:15:49 by xvoorvaa      #+#    #+#                 */
+/*   Updated: 2021/07/12 13:26:31 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../printf.h"
+#include <unistd.h>
 
-int	check_perc(char *str, va_list ap)
+int	numlen(long long number)
 {
 	int	len;
 
 	len = 0;
-	while (*str != '\0')
-	{
-		if (*str == '%')
-		{
-			str++;
-			if (ft_strchr(CONV, *str))
-				len = conversion(str, ap) + len;
-		}
-		else
-		{
-			ft_putchar_fd(*str, 1);
-			len++;
-		}
-		str++;
-	}
+	if (number > 9 || number < -9)
+		len = numlen(number / 10) + len;
+	if (number > -9 && number < 0)
+		len++;
+	len++;
 	return (len);
 }
 
-int	ft_printf(const char *str, ...)
+int	unsigned_numlen(unsigned long long number)
 {
-	va_list	arg;
-	char	*ptr;
-	int		len;
+	int	len;
 
 	len = 0;
-	ptr = (char *) str;
-	va_start(arg, str);
-	len = check_perc(ptr, arg);
-	va_end(arg);
+	if (number > 9)
+		len = unsigned_numlen(number / 10) + len;
+	len++;
 	return (len);
 }

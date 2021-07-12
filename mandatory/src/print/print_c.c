@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   print_perc.c                                       :+:    :+:            */
+/*   print_c.c                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: xander <xander@student.codam.nl>             +#+                     */
+/*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/06/25 10:55:53 by xander        #+#    #+#                 */
-/*   Updated: 2021/07/12 14:09:21 by xander        ########   odam.nl         */
+/*   Created: 2021/06/07 11:47:14 by xvoorvaa      #+#    #+#                 */
+/*   Updated: 2021/07/12 12:55:53 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../printf.h"
 
-size_t	print_perc(void)
-{
-	int	len;
+/*
+	Printf cannot work with 0 and c together. For example, "%05c".
+	Precision is also not an option.
+	It should show an ERROR.
+*/
 
-	len = 0;
-	if (t_flags.minus_true == 1)
-	{
-		write(1, "%", 1);
-		len = print_width_int(1);
-	}
-	else
-	{
-		len = print_width_int(1);
-		write(1, "%", 1);
-	}
-	return (len + 1);
+int	print_c(va_list ap)
+{
+	int		flag_c;
+
+	flag_c = va_arg(ap, int);
+	write(1, &flag_c, 1);
+	return (1);
 }

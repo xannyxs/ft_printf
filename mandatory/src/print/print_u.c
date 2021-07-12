@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strchr.c                                        :+:    :+:            */
+/*   print_u.c                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: xvoorvaa <xvoorvaa@codam.nl>                 +#+                     */
+/*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/20 15:07:11 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/07 14:34:45 by xvoorvaa      ########   odam.nl         */
+/*   Created: 2021/06/07 11:27:44 by xvoorvaa      #+#    #+#                 */
+/*   Updated: 2021/07/12 13:17:48 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "../../../printf.h"
 
-char	*ft_strchr(const char *str, int c)
+int	print_u(va_list ap)
 {
-	char	*ptr;
+	int					len;
+	unsigned long long	hex;
 
-	ptr = (char *)str;
-	while (*ptr != c)
-	{
-		if (*ptr == '\0')
-			return (NULL);
-		ptr++;
-	}
-	return (ptr);
+	hex = (unsigned int) va_arg(ap, int);
+	len = ft_putlong_fd(hex, 1, 0);
+	return (len);
 }

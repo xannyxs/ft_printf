@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   print_perc.c                                       :+:    :+:            */
+/*   conversions.h                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/06/25 10:55:53 by xander        #+#    #+#                 */
-/*   Updated: 2021/07/12 14:09:21 by xander        ########   odam.nl         */
+/*   Created: 2021/07/12 13:47:52 by xander        #+#    #+#                 */
+/*   Updated: 2021/07/12 14:55:17 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../printf.h"
+#ifndef CONVERSIONS_H
+# define CONVERSIONS_H
+# include "printf.h"
 
-size_t	print_perc(void)
+typedef struct s_conversions
 {
-	int	len;
+	char key;
+	int	(*func)(va_list);
+}		t_conversions;
 
-	len = 0;
-	if (t_flags.minus_true == 1)
-	{
-		write(1, "%", 1);
-		len = print_width_int(1);
-	}
-	else
-	{
-		len = print_width_int(1);
-		write(1, "%", 1);
-	}
-	return (len + 1);
-}
+t_conversions	s_conversions[] = {
+	{'s', &print_s},
+	{'c', &print_c},
+	{'i', &print_id},
+	{'d', &print_id},
+	{'u', &print_u},
+	{'p', &print_p},
+	{0, NULL}
+};
+
+#endif

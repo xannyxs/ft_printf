@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strchr.c                                        :+:    :+:            */
+/*   ft_putstr_fd.c                                     :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: xvoorvaa <xvoorvaa@codam.nl>                 +#+                     */
+/*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/20 15:07:11 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/07 14:34:45 by xvoorvaa      ########   odam.nl         */
+/*   Created: 2021/06/07 09:51:00 by xvoorvaa      #+#    #+#                 */
+/*   Updated: 2021/07/12 14:57:40 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "../../printf.h"
 
-char	*ft_strchr(const char *str, int c)
+void	ft_putstr_fd(char *s, int fd)
 {
-	char	*ptr;
-
-	ptr = (char *)str;
-	while (*ptr != c)
+	if (!s)
+		return ;
+	while (*s != '\0')
 	{
-		if (*ptr == '\0')
-			return (NULL);
-		ptr++;
+		write(fd, s, 1);
+		s++;
+		t_flags.len++;
 	}
-	return (ptr);
 }
