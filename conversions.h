@@ -6,7 +6,7 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/07/12 13:47:52 by xander        #+#    #+#                 */
-/*   Updated: 2021/07/12 14:55:17 by xander        ########   odam.nl         */
+/*   Updated: 2021/07/12 15:21:01 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 
 typedef struct s_conversions
 {
-	char key;
-	int	(*func)(va_list);
-}		t_conversions;
+	char	key;
+	int		(*func)(va_list);
+}			t_conversions;
 
 t_conversions	s_conversions[] = {
 	{'s', &print_s},
