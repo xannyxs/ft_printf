@@ -6,7 +6,7 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/07/12 13:47:52 by xander        #+#    #+#                 */
-/*   Updated: 2021/07/12 15:21:01 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/07/12 15:41:58 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef struct s_conversions
 	int		(*func)(va_list);
 }			t_conversions;
 
-t_conversions	s_conversions[] = {
+t_conversions	g_conversions[] = {
 	{'s', &print_s},
 	{'c', &print_c},
 	{'i', &print_id},

@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 16:21:50 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/07/12 14:58:47 by xander        ########   odam.nl         */
+/*   Updated: 2021/07/12 15:42:06 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,17 @@ int	convert_hex(long long number, int check)
 	return (len);
 }
 
-int conversion(char *str, va_list ap)
+int	conversion(char *str, va_list ap)
 {
 	int	i;
-	int len;
+	int	len;
 
 	i = 0;
 	len = 0;
-	while (s_conversions[i].key)
+	while (g_conversions[i].key)
 	{
-		if (*str == s_conversions[i].key)
-			len = s_conversions[i].func(ap);
+		if (*str == g_conversions[i].key)
+			len = g_conversions[i].func(ap);
 		i++;
 	}
 	if (*str == 'x')
