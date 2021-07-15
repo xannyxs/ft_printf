@@ -40,7 +40,10 @@ int	print_s(va_list ap)
 
 	ptr = va_arg(ap, char *);
 	if (ptr == NULL)
+	{
 		ptr = "(null)";
+		t_flags.len = t_flags.len + 6;
+	}
 	str = ft_strdup(ptr);
 	if (!str)
 		return (0);
