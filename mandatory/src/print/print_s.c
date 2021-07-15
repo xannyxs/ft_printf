@@ -15,15 +15,19 @@
 int	print_s(va_list ap)
 {
 	char	*ptr;
-	char	*str;
+	int 	len;
 
+	len = 0;
 	ptr = va_arg(ap, char *);
+	if (ptr != NULL)
+		len = ft_strlen(ptr);
 	if (ptr == NULL)
+	{
 		ptr = "(null)";
-	str = ft_strdup(ptr);
-	if (!str)
-		return (0);
+		if (!ptr)
+			return (0);
+		len = 6;
+	}
 	ft_putstr_fd(ptr, 1);
-	free(str);
-	return (t_flags.len);
+	return (len);
 }
