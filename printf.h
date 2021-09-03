@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/24 19:26:37 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/07/12 13:59:14 by xander        ########   odam.nl         */
+/*   Updated: 2021/09/02 12:07:07 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int		numlen(long long number);
 
 int		print_width_str(char *str);
 
-int		convert_hex(long long number, int check);
+int		convert_hex(unsigned long number, int check);
 
 void	flag(char **str);
 

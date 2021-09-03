@@ -19,9 +19,9 @@ int	main(void)
 	ptr = "Xander";
 	swag = 4332;
 	printf("\n--- FT_PRINTF ---\n\n");
-	ft_print = ft_printf("|| %s & %s ||", "Xander", ptr);
+	ft_print = ft_printf("|| %s & ||", "Xander");
 	printf("\n\n--- PRINTF ---\n\n");
-	print = printf("|| %s & %s ||", "Xander", ptr);
+	print = printf("|| %s & ||", "Xander");
 	printf("\n\n");
 	printf("ft_printf return: %d\n", ft_print);
 	printf("printf return: %d\n", print);
