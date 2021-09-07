@@ -6,14 +6,14 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 16:21:50 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/09/02 12:06:41 by xander        ########   odam.nl         */
+/*   Updated: 2021/09/07 13:12:41 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../printf.h"
 #include "../../conversions.h"
 
-int	convert_hex(long number, int check)
+int	convert_hex(unsigned long number, int check)
 {
 	const char	*caps_digits;
 	const char	*nocaps_digits;
@@ -33,6 +33,21 @@ int	convert_hex(long number, int check)
 	return (len);
 }
 
+t_conversions	*get_conversions(int index)
+{
+	static t_conversions	g_conversions[] = {
+	{'s', &print_s},
+	{'c', &print_c},
+	{'i', &print_id},
+	{'d', &print_id},
+	{'u', &print_u},
+	{'p', &print_p},
+	{0, NULL}
+	};
+
+	return (&g_conversions[index]);
+}
+
 int	conversion(char *str, va_list ap)
 {
 	int	i;
@@ -40,10 +55,10 @@ int	conversion(char *str, va_list ap)
 
 	i = 0;
 	len = 0;
-	while (g_conversions[i].key)
+	while (get_conversions(i)->key)
 	{
-		if (*str == g_conversions[i].key)
-			len = g_conversions[i].func(ap);
+		if (*str == get_conversions(i)->key)
+			len = get_conversions(i)->func(ap);
 		i++;
 	}
 	if (*str == 'x')

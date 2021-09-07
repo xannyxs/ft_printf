@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   conversions.h                                      :+:    :+:            */
+/*   conversion.h                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/07/12 13:47:52 by xander        #+#    #+#                 */
-/*   Updated: 2021/07/12 15:41:58 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/09/07 13:03:16 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,5 @@ typedef struct s_conversions
 	char	key;
 	int		(*func)(va_list);
 }			t_conversions;
-
-t_conversions	g_conversions[] = {
-	{'s', &print_s},
-	{'c', &print_c},
-	{'i', &print_id},
-	{'d', &print_id},
-	{'u', &print_u},
-	{'p', &print_p},
-	{0, NULL}
-};
 
 #endif
