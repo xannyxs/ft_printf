@@ -6,11 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 16:21:50 by xvoorvaa      #+#    #+#                 */
-<<<<<<< HEAD
-/*   Updated: 2021/09/07 13:12:41 by xvoorvaa      ########   odam.nl         */
-=======
-/*   Updated: 2021/09/07 11:09:18 by xander        ########   odam.nl         */
->>>>>>> 77959b1b0cf892d30db20ffcddba48614510cc6c
+/*   Updated: 2021/09/08 17:39:18 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
