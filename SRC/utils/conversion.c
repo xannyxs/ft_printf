@@ -6,14 +6,14 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 16:21:50 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/07/12 15:42:14 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2021/12/11 19:51:00 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../printf.h"
 #include "../../conversions.h"
 
-int	convert_hex(long long number, int check)
+int	convert_hex(unsigned long number, int check)
 {
 	const char	*caps_digits;
 	const char	*nocaps_digits;
@@ -40,10 +40,10 @@ int	conversion(char *str, va_list ap)
 
 	i = 0;
 	len = 0;
-	while (g_conversions[i].key)
+	while (s_conversions[i].key)
 	{
-		if (*str == g_conversions[i].key)
-			len = g_conversions[i].func(ap);
+		if (*str == s_conversions[i].key)
+			len = s_conversions[i].func(ap);
 		i++;
 	}
 	if (*str == 'x')

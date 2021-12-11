@@ -1,71 +1,78 @@
-NAME	=	libftprintf.a
-CFLAGS	=	-Wall -Werror -Wextra
-SRCS	=	mandatory/libft/ft_isdigit.c \
-			mandatory/libft/ft_putchar_fd.c \
-			mandatory/libft/ft_putlong_fd.c \
-			mandatory/libft/ft_putnbr_fd.c \
-			mandatory/libft/ft_putstr_fd.c \
-			mandatory/libft/ft_strchr.c \
-			mandatory/libft/ft_strdup.c \
-			mandatory/libft/ft_strlen.c \
-			mandatory/src/print/print_c.c \
-			mandatory/src/print/print_id.c \
-			mandatory/src/print/print_p.c \
-			mandatory/src/print/print_perc.c \
-			mandatory/src/print/print_x.c \
-			mandatory/src/print/print_u.c \
-			mandatory/src/print/print_s.c \
-			mandatory/src/conversion.c \
-			mandatory/src/numlen.c \
-			mandatory/src/printf.c \
+# **************************************************************************** #
+#                                                                              #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                      #
+#                                                    +#+                       #
+#    Created: 2021/09/15 18:01:23 by xvoorvaa      #+#    #+#                  #
+#    Updated: 2021/12/11 19:52:41 by xander        ########   odam.nl          #
+#                                                                              #
+# **************************************************************************** #
 
-SRCS_B	=	bonus/src/printf.c \
-			bonus/src/conversion.c \
-			bonus/src/width.c \
-			bonus/src/numlen.c \
-			bonus/src/flag.c \
-			bonus/libft/ft_atoi.c \
-			bonus/libft/ft_putchar_fd.c \
-			bonus/libft/ft_putnbr_fd.c \
-			bonus/libft/ft_strchr.c \
-			bonus/libft/ft_putlong_fd.c \
-			bonus/libft/ft_strlen.c \
-			bonus/libft/ft_strdup.c \
-			bonus/libft/ft_putstr_fd.c \
-			bonus/libft/ft_isdigit.c \
-			bonus/libft/ft_putstr_precision.c \
-			bonus/src/print/print_u.c \
-			bonus/src/print/print_c.c \
-			bonus/src/print/print_s.c \
-			bonus/src/print/print_x.c \
-			bonus/src/print/print_p.c \
-			bonus/src/print/print_id.c \
-			bonus/src/print/print_perc.c \
-			bonus/src/width/print_width_str.c \
-			bonus/src/width/print_width_int.c \
-			bonus/src/width/print_width_unsigned.c \
+NAME			=	ft_printf
+CFLAGS			=	#-Wall -Werror -Wextra
+LEAKS			=	-g3 -fsanitize=address
+OBJS			=	$(SRCS:.c)
+SRCS			=	main.c \
+					SRC/utils/printf.c \
+					SRC/libft/ft_atoi.c \
+					SRC/libft/ft_putchar_fd.c \
+					SRC/libft/ft_putnbr_fd.c \
+					SRC/libft/ft_strchr.c \
+					SRC/libft/ft_putlong_fd.c \
+					SRC/libft/ft_strlen.c \
+					SRC/libft/ft_strdup.c \
+					SRC/libft/ft_putstr_fd.c \
+					SRC/libft/ft_isdigit.c \
+					SRC/libft/ft_putstr_precision.c \
+					SRC/utils/conversion.c \
+					SRC/utils/width.c \
+					SRC/utils/numlen.c \
+					SRC/utils/flag.c \
+					SRC/utils/print/print_u.c \
+					SRC/utils/print/print_c.c \
+					SRC/utils/print/print_s.c \
+					SRC/utils/print/print_x.c \
+					SRC/utils/print/print_p.c \
+					SRC/utils/print/print_id.c \
+					SRC/utils/print/print_perc.c \
+					SRC/utils/width/print_width_str.c \
+					SRC/utils/width/print_width_int.c \
+					SRC/utils/width/print_width_unsigned.c \
 
-OBJS	=	$(SRCS:.c=.o)
+GREEN			=	\033[1;32m
+BLUE			=	\033[1;36m
+RED				=	\033[0;31m
+NC				=	\033[0m # No Color
 
-OBJS_B	=	$(SRCS_B:.c=.o)
+MESSAGE			= "$(BLUE)---\nCompiling done! Run ./$(NAME)\n---$(NC)"
+COMP_MESSAGE	= "$(GREEN)Building C object... $(NC)%-33.33s\r\n"
+REM_MESSAGE		= "$(RED)Removing files...$(NC)"
 
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-			ar rcs $(NAME) $(OBJS)
+	@gcc $(CFLAGS) $(SRCS) -o $(NAME)
+	@printf $(COMP_MESSAGE) $(SRCS)
+	@echo $(MESSAGE)
 
-compile:
-			gcc $(CFLAGS) $(SRCS_B) main.c -o ft_printf
+leaks:
+	@gcc $(CFLAGS) $(SRCS) $(LEAKS) -o $(NAME)
+	@printf $(COMP_MESSAGE) $(SRCS)
+	@echo $(MESSAGE)
 
 clean:
-			rm -f $(OBJS) $(OBJS_B)
+	@echo "\n"
+	@rm -f $(OBJS)
+	@printf $(REM_MESSAGE)
+	@echo "\n"
 
-fclean:
-			rm -f $(OBJS) $(OBJS_B) libftprintf.a ft_printf
 
-re:			fclean $(NAME)
+fclean:		clean
+	@rm -f $(NAME)
+	@rm -rf $(NAME).dSYM
 
-bonus:		$(OBJS_B)
-			ar rcs libftprintf.a $(OBJS_B)
+re:			fclean all
 
-.PHONY:		all compile clean fclean re bonus
+.PHONY:		all leaks clean fclean re
