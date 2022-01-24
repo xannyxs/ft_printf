@@ -6,12 +6,12 @@
 #    By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/09/15 18:01:23 by xvoorvaa      #+#    #+#                  #
-#    Updated: 2021/12/11 19:52:41 by xander        ########   odam.nl          #
+#    Updated: 2022/01/24 15:29:24 by xvoorvaa      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	ft_printf
-CFLAGS			=	#-Wall -Werror -Wextra
+CFLAGS			=	-Wall -Werror -Wextra
 LEAKS			=	-g3 -fsanitize=address
 OBJS			=	$(SRCS:.c)
 SRCS			=	main.c \
