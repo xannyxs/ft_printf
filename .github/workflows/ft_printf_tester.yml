@@ -16,8 +16,6 @@ jobs:
     - name: make re - ft_printf
       run: make re
     - name: Clone tester
-      run: git clone https://github.com/joppiesaus/ft_printf-tester.git
-    - name: make - printf_tester
-      run: make -C ft_printf-tester
-    - name: Execute tester
-      run: ./ft_printf-tester/test
+      run: git clone https://github.com/Tripouille/printfTester.git
+    - name: run - printfTester
+      run: make -C printfTester
