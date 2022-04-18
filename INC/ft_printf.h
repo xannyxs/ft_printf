@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ../ft_printf.h                                        :+:    :+:            */
+/*   ft_printf.h                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/24 19:26:37 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2022/04/18 11:20:34 by xander        ########   odam.nl         */
+/*   Updated: 2022/04/18 17:24:57 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@
 
 # define FLAGS "-0 "
 # define CONV "cspdiuxX%"
-# define WIDTH ".*123456789"
+# define WIDTH "123456789"
 
-struct s_flags
+typedef struct s_flags
 {
-	int		width;
-	int		precision;
-	bool	is_minus;
-	bool	is_zero_fill;
-	bool	is_negative;
-}			t_flags;
+	int				precision;
+	bool			is_minus;
+	bool			is_zero_fill;
+	bool			is_negative;
+	unsigned int	width;
+}	t_flags;
 
 /*
 	LIBFT
@@ -44,7 +44,7 @@ int		ft_atoi(const char *str);
 
 size_t	ft_strlen(char const *str);
 
-int		ft_isdigit(int argc);
+bool	ft_isdigit(int argc);
 
 void	ft_putstr_fd(char *s, int fd);
 
@@ -52,32 +52,28 @@ void	ft_putstr_fd(char *s, int fd);
 	PRINT_
 */
 
-unsigned int	print_p(va_list ap);
+unsigned int	print_p(t_flags *flags, va_list ap);
 
-unsigned int	print_x(va_list ap, bool is_uppercase);
+unsigned int	print_x(t_flags *flags, va_list ap, bool is_uppercase);
 
-unsigned int	print_u(va_list ap);
+unsigned int	print_u(t_flags *flags, va_list ap);
 
-unsigned int	print_c(va_list ap);
+unsigned int	print_c(t_flags *flags, va_list ap);
 
-unsigned int	print_id(va_list ap);
+unsigned int	print_id(t_flags *flags, va_list ap);
 
-unsigned int	print_s(va_list ap);
+unsigned int	print_s(t_flags *flags, va_list ap);
 
-unsigned int	print_perc(void);
+unsigned int	print_perc(t_flags *flags);
 
 /*
 	SRC
 */
 
-int		ft_printf(const char *str, ...);
+int				ft_printf(const char *str, ...);
 
-unsigned int	conversion(char c, va_list ap);
+unsigned int	conversion(t_flags *flags, char *str, va_list ap);
 
-int		convert_hex(unsigned long number, bool is_uppercase);
-
-int		print_width_unsigned(unsigned long long ap);
-
-int		unsigned_numlen(unsigned long long number);
+int				convert_hex(unsigned long number, bool is_uppercase);
 
 #endif

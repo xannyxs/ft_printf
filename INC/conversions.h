@@ -14,10 +14,10 @@
  # define CONVERSIONS_H
  # include "printf.h"
 
- typedef struct s_conversions
- {
- 	char key;
- 	unsigned int	(*func)(va_list);
- }		t_conversions;
+typedef struct s_conversions
+{
+	char key;
+	unsigned int	(*func)(t_flags *, va_list);
+}	t_conversions;
 
  #endif

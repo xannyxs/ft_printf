@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 11:47:14 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2022/04/18 11:33:13 by xander        ########   odam.nl         */
+/*   Updated: 2022/04/18 17:23:51 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@
 	It should show an ERROR.
 */
 
-unsigned int	print_c(va_list ap)
+unsigned int	print_c(t_flags *flags, va_list ap)
 {
 	int	flag_c;
 
+	(void) flags;
 	flag_c = va_arg(ap, int);
 	write(STDOUT_FILENO, &flag_c, 1);
 	return (1);

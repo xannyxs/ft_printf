@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 11:27:44 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2022/04/18 13:25:45 by xander        ########   odam.nl         */
+/*   Updated: 2022/04/18 17:23:15 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,13 @@ static unsigned int	ft_put_unsigned_nbr_fd(unsigned int n, int fd, unsigned int 
 	return (len);
 }
 
-unsigned int	print_u(va_list ap)
+unsigned int	print_u(t_flags *flags, va_list ap)
 {
 	unsigned int	len;
 	unsigned int	number;
 
 	len = 0;
+	(void) flags;
 	number = (unsigned int) va_arg(ap, int);
 	len += ft_put_unsigned_nbr_fd(number, STDOUT_FILENO, len);
 	return (len);

@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 15:11:49 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2022/04/18 14:23:33 by xander        ########   odam.nl         */
+/*   Updated: 2022/04/18 17:20:17 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,30 @@
 
 static int	check_perc(char *str, va_list ap)
 {
-	int	i;
-	int	len;
+	int		len;
+	t_flags	flags;
 
-	i = 0;
 	len = 0;
-	while (str[i] != '\0')
+	while (*str != '\0')
 	{
-		if (str[i] == '%')
+		if (*str == '%')
 		{
-			i++;
-			if (ft_strchr(CONV, str[i]))
-				len += conversion(str[i], ap);
+			str++;
+			if (ft_strchr(WIDTH, *str))
+			{
+				flags.width = ft_atoi(str);
+				while (ft_isdigit(*str) == true)
+					str++;
+			}
+			if (ft_strchr(CONV, *str))
+				len += conversion(&flags, str, ap);
 		}
 		else
 		{
-			write(STDOUT_FILENO, &str[i], 1);
+			write(STDOUT_FILENO, str, 1);
 			len++;
 		}
-		i++;
+		str++;
 	}
 	return (len);
 }

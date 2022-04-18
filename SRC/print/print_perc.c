@@ -6,7 +6,7 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/25 10:55:53 by xander        #+#    #+#                 */
-/*   Updated: 2022/04/18 11:39:39 by xander        ########   odam.nl         */
+/*   Updated: 2022/04/18 17:25:31 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 #include <unistd.h>
 
-unsigned int	print_perc(void)
+unsigned int	print_perc(t_flags *flags)
 {
+	(void) flags;
 	write(STDOUT_FILENO, "%", 1);
 	return (1);
 }

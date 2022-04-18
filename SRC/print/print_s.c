@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 15:57:00 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2022/04/18 12:10:43 by xander        ########   odam.nl         */
+/*   Updated: 2022/04/18 17:23:03 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-unsigned int	print_s(va_list ap)
+unsigned int	print_s(t_flags *flags, va_list ap)
 {
 	unsigned int	len;
 	char			*str;
 
+	(void) flags;
 	len = 0;
 	str = va_arg(ap, char *);
 	if (!str)

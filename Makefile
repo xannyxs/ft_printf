@@ -6,7 +6,7 @@
 #    By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/09/15 18:01:23 by xvoorvaa      #+#    #+#                  #
-#    Updated: 2022/04/18 11:56:32 by xander        ########   odam.nl          #
+#    Updated: 2022/04/18 17:16:49 by xander        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ FILES			=	ft_printf.c \
 					print/print_x.c \
 					print/print_p.c \
 					print/print_id.c \
-					print/print_perc.c
+					print/print_perc.c \
 
 
 SHELL			:=	/bin/bash

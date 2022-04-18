@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 16:04:30 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2022/04/18 11:47:43 by xander        ########   odam.nl         */
+/*   Updated: 2022/04/18 17:22:48 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@
 	It should show an ERROR.
 */
 
-unsigned int	print_p(va_list ap)
+unsigned int	print_p(t_flags *flags, va_list ap)
 {
 	size_t				len;
 	unsigned long long	hex;
 
+	(void) flags;
 	len = 0;
 	hex = (unsigned long long) va_arg(ap, void *);
 	write(STDOUT_FILENO, "0x", 2);
