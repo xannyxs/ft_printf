@@ -1,6 +1,17 @@
 
-# ```ft_printf``` - <i>Because putnbr and putstr aren’t enough</i>
+# ```ft_printf``` - Because putnbr and putstr aren’t enough
+[![xvoorvaa's 42 ft_printf Score](https://badge42.vercel.app/api/v2/cl1l0g8q3005209mm02a81gfy/project/2065220)](https://github.com/JaeSeoKim/badge42)
+
 ---
+
+### Workflows to check Linux and macOS compilation:
+
+[![ft_printf MacOs compile check CI](https://github.com/xvoorvaa/ft_printf/actions/workflows/MacOs_compilation.yml/badge.svg)](https://github.com/xvoorvaa/ft_printf/actions/workflows/MacOs_compilation.yml)
+
+[![ft_printf Ubuntu compile check CI](https://github.com/xvoorvaa/ft_printf/actions/workflows/ubuntu_compilation.yml/badge.svg)](https://github.com/xvoorvaa/ft_printf/actions/workflows/ubuntu_compilation.yml)
+
+### [Tripouille/printfTester](https://github.com/Tripouille/printfTester) check <br>
+[![Test ft_printf MacOs](https://github.com/xvoorvaa/ft_printf/actions/workflows/ft_printf_tester.yml/badge.svg)](https://github.com/xvoorvaa/ft_printf/actions/workflows/ft_printf_tester.yml)
 
 ## 💡 About the project
 
