@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 15:11:49 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2022/04/18 12:03:38 by xander        ########   odam.nl         */
+/*   Updated: 2022/04/18 14:23:33 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 #include <unistd.h>
 #include <stdarg.h>
+
+#include <stdio.h>
 
 static int	check_perc(char *str, va_list ap)
 {

@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 11:27:44 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2022/04/18 12:54:12 by xander        ########   odam.nl         */
+/*   Updated: 2022/04/18 13:25:45 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@
 
 static unsigned int	ft_put_unsigned_nbr_fd(unsigned int n, int fd, unsigned int len)
 {
-	if (n < 0)
-	{
-		write(fd, "-", 1);
-		n = n * -1;
-		len++;
-	}
 	if (n > 9)
 	{
 		len = ft_putnbr_fd(n / 10, fd, len);
