@@ -6,67 +6,66 @@
 #    By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/09/15 18:01:23 by xvoorvaa      #+#    #+#                  #
-#    Updated: 2022/01/24 15:29:24 by xvoorvaa      ########   odam.nl          #
+#    Updated: 2022/04/18 11:56:32 by xander        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	ft_printf
-CFLAGS			=	-Wall -Werror -Wextra
-LEAKS			=	-g3 -fsanitize=address
-OBJS			=	$(SRCS:.c)
-SRCS			=	main.c \
-					SRC/utils/printf.c \
-					SRC/libft/ft_atoi.c \
-					SRC/libft/ft_putchar_fd.c \
-					SRC/libft/ft_putnbr_fd.c \
-					SRC/libft/ft_strchr.c \
-					SRC/libft/ft_putlong_fd.c \
-					SRC/libft/ft_strlen.c \
-					SRC/libft/ft_strdup.c \
-					SRC/libft/ft_putstr_fd.c \
-					SRC/libft/ft_isdigit.c \
-					SRC/libft/ft_putstr_precision.c \
-					SRC/utils/conversion.c \
-					SRC/utils/width.c \
-					SRC/utils/numlen.c \
-					SRC/utils/flag.c \
-					SRC/utils/print/print_u.c \
-					SRC/utils/print/print_c.c \
-					SRC/utils/print/print_s.c \
-					SRC/utils/print/print_x.c \
-					SRC/utils/print/print_p.c \
-					SRC/utils/print/print_id.c \
-					SRC/utils/print/print_perc.c \
-					SRC/utils/width/print_width_str.c \
-					SRC/utils/width/print_width_int.c \
-					SRC/utils/width/print_width_unsigned.c \
+NAME			=	libftprintf.a
+CC				=	gcc
+CFLAGS			=	-Wall -Wextra -Werror
 
-GREEN			=	\033[1;32m
-BLUE			=	\033[1;36m
-RED				=	\033[0;31m
-NC				=	\033[0m # No Color
+OBJ_DIR			=	OBJ
 
-MESSAGE			= "$(BLUE)---\nCompiling done! Run ./$(NAME)\n---$(NC)"
-COMP_MESSAGE	= "$(GREEN)Building C object... $(NC)%-33.33s\r\n"
-REM_MESSAGE		= "$(RED)Removing files...$(NC)"
+FILES			=	ft_printf.c \
+					conversion.c \
+					libft/ft_atoi.c \
+					libft/ft_putchar_fd.c \
+					libft/ft_putnbr_fd.c \
+					libft/ft_strchr.c \
+					libft/ft_strlen.c \
+					libft/ft_putstr_fd.c \
+					libft/ft_isdigit.c \
+					print/print_u.c \
+					print/print_c.c \
+					print/print_s.c \
+					print/print_x.c \
+					print/print_p.c \
+					print/print_id.c \
+					print/print_perc.c
 
-all:		$(NAME)
 
-$(NAME):	$(OBJS)
-	@gcc $(CFLAGS) $(SRCS) -o $(NAME)
+SHELL			:=	/bin/bash
+HEADERS			:=	-I INC
+SRCS			:=	$(addprefix SRC/, $(FILES))
+OBJS			:=	$(SRCS:.c=.o)
+
+PINK = \x1b[35;01m
+BLUE = \x1b[34;01m
+YELLOW = \x1b[33;01m
+GREEN = \x1b[32;01m
+RED = \x1b[31;01m
+WHITE = \x1b[31;37m
+RESET = \x1b[0m
+
+START			=	"\n$(BLUE)---\nStarting...!\n---\n$(RESET)"
+MESSAGE			=	"$(BLUE)---\nCompiling done!\n---\n$(RESET)"
+COMP_MESSAGE	=	"$(GREEN)Building C object... $(RESET)%-33.33s\r\n"
+REM_MESSAGE		=	"$(RED)Removing files...$(RESET)"
+
+all:	$(NAME)
+
+%.o: %.c
+	@$(CC) -c $^ -o $@ $(CFLAGS) $(HEADERS)
+
+$(NAME): $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
+	@printf $(START)
 	@printf $(COMP_MESSAGE) $(SRCS)
-	@echo $(MESSAGE)
-
-leaks:
-	@gcc $(CFLAGS) $(SRCS) $(LEAKS) -o $(NAME)
-	@printf $(COMP_MESSAGE) $(SRCS)
-	@echo $(MESSAGE)
+	@printf $(MESSAGE)
 
 clean:
-	@echo "\n"
-	@rm -f $(OBJS)
 	@printf $(REM_MESSAGE)
-	@echo "\n"
+	@rm -rf $(OBJS)
 
 
 fclean:		clean
@@ -75,4 +74,4 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY:		all leaks clean fclean re
+.PHONY:		all clean fclean re

@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   numlen.c                                           :+:    :+:            */
+/*   print_s.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/05/30 18:15:49 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/06/24 14:44:11 by xander        ########   odam.nl         */
+/*   Created: 2021/06/07 15:57:00 by xvoorvaa      #+#    #+#                 */
+/*   Updated: 2022/04/18 12:10:43 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
+
+#include <stdarg.h>
 #include <unistd.h>
 
-/*
-	LINE 22: Er komt een extra len bij door de '-'.
-*/
-
-int	numlen(long long number)
+unsigned int	print_s(va_list ap)
 {
-	int	len;
+	unsigned int	len;
+	char			*str;
 
 	len = 0;
-	if (number > 9 || number < -9)
-		len = numlen(number / 10) + len;
-	if (number > -9 && number < 0)
+	str = va_arg(ap, char *);
+	if (!str)
+	{
+		write(STDOUT_FILENO, "(null)", 6);
+		return (6);
+	}
+	while (str[len] != '\0')
+	{
+		write(STDOUT_FILENO, &str[len], 1);
 		len++;
-	len++;
-	return (len);
-}
-
-int	unsigned_numlen(unsigned long long number)
-{
-	int	len;
-
-	len = 0;
-	if (number > 9)
-		len = unsigned_numlen(number / 10) + len;
-	len++;
+	}
 	return (len);
 }

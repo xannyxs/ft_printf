@@ -1,62 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   printf.c                                           :+:    :+:            */
+/*   ft_printf.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 15:11:49 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2022/01/24 15:38:18 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2022/04/18 12:03:38 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../printf.h"
+#include "ft_printf.h"
 
-void	reset_struct(void)
-{
-	t_flags.width = 0;
-	t_flags.minus_true = 0;
-	t_flags.zero_true = 0;
-}
+#include <unistd.h>
+#include <stdarg.h>
 
-int	check_perc(char *str, va_list ap)
+static int	check_perc(char *str, va_list ap)
 {
+	int	i;
 	int	len;
 
+	i = 0;
 	len = 0;
-	while (*str != '\0')
+	while (str[i] != '\0')
 	{
-		if (*str == '%')
+		if (str[i] == '%')
 		{
-			reset_struct();
-			str++;
-			if (ft_strchr(FLAGS, *str))
-				flag(&str);
-			if (ft_strchr(WIDTH, *str))
-				check_precision_width(&str, ap);
-			if (ft_strchr(CONV, *str))
-				len = conversion(str, ap) + len;
+			i++;
+			if (ft_strchr(CONV, str[i]))
+				len += conversion(str[i], ap);
 		}
 		else
 		{
-			ft_putchar_fd(*str, 1);
+			write(STDOUT_FILENO, &str[i], 1);
 			len++;
 		}
-		str++;
+		i++;
 	}
 	return (len);
 }
 
 int	ft_printf(const char *str, ...)
 {
-	va_list	arg;
-	char	*ptr;
-	int		len;
+	unsigned int	len;
+	va_list			arg;
 
 	len = 0;
-	ptr = (char *) str;
 	va_start(arg, str);
-	len = check_perc(ptr, arg);
+	len = check_perc((char *) str, arg);
 	va_end(arg);
 	return (len);
 }

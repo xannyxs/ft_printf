@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strdup.c                                        :+:    :+:            */
+/*   print_x.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/06/06 13:57:17 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/07/09 18:38:10 by xander        ########   odam.nl         */
+/*   Created: 2021/06/07 16:02:52 by xvoorvaa      #+#    #+#                 */
+/*   Updated: 2022/04/18 11:47:11 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../printf.h"
+#include "ft_printf.h"
 
-char	*ft_strdup(const char *s1)
+#include <stdarg.h>
+#include <unistd.h>
+
+unsigned int	print_x(va_list ap, bool is_uppercase)
 {
-	char	*s2;
-	size_t	i;
-	size_t	len;
+	int				len;
+	unsigned int	hex;
 
-	len = ft_strlen(s1);
-	i = 0;
-	s2 = (char *)malloc(sizeof(char) * len + 1);
-	if (!s2)
-		return (NULL);
-	while (i < len)
-	{
-		s2[i] = s1[i];
-		i++;
-	}
-	s2[i] = 0;
-	return (s2);
+	len = 0;
+	hex = va_arg(ap, int);
+	len += convert_hex(hex, is_uppercase);
+	return (len);
 }

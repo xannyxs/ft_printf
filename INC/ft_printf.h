@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   printf.h                                           :+:    :+:            */
+/*   ../ft_printf.h                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/24 19:26:37 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/09/02 12:07:07 by xander        ########   odam.nl         */
+/*   Updated: 2022/04/18 11:20:34 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
-# include <unistd.h>
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+
+# include <stdbool.h>
 # include <stdarg.h>
-# include <stdlib.h>
+# include <stddef.h>
+
 # define FLAGS "-0 "
 # define CONV "cspdiuxX%"
 # define WIDTH ".*123456789"
@@ -23,10 +25,9 @@ struct s_flags
 {
 	int		width;
 	int		precision;
-	int		minus_true;
-	int		zero_true;
-	int		negative_true;
-	size_t	len;
+	bool	is_minus;
+	bool	is_zero_fill;
+	bool	is_negative;
 }			t_flags;
 
 /*
@@ -37,9 +38,7 @@ void	ft_putchar_fd(char c, int fd);
 
 char	*ft_strchr(const char *str, int c);
 
-int		ft_putnbr_fd(long n, int fd, size_t len);
-
-int		ft_putlong_fd(long n, int fd, size_t len);
+int		ft_putnbr_fd(long n, int fd, unsigned int len);
 
 int		ft_atoi(const char *str);
 
@@ -49,27 +48,23 @@ int		ft_isdigit(int argc);
 
 void	ft_putstr_fd(char *s, int fd);
 
-char	*ft_strdup(const char *s1);
-
 /*
 	PRINT_
 */
 
-int		print_p(va_list ap);
+unsigned int	print_p(va_list ap);
 
-int		print_x(va_list ap, int check);
+unsigned int	print_x(va_list ap, bool is_uppercase);
 
-int		print_u(va_list ap);
+unsigned int	print_u(va_list ap);
 
-int		print_c(va_list ap);
+unsigned int	print_c(va_list ap);
 
-int		print_id(va_list ap);
+unsigned int	print_id(va_list ap);
 
-int		print_s(va_list ap);
+unsigned int	print_s(va_list ap);
 
-void	print_null(void);
-
-size_t	print_perc(void);
+unsigned int	print_perc(void);
 
 /*
 	SRC
@@ -77,26 +72,12 @@ size_t	print_perc(void);
 
 int		ft_printf(const char *str, ...);
 
-int		conversion(char *str, va_list ap);
+unsigned int	conversion(char c, va_list ap);
 
-void	check_precision_width(char **str, va_list ap);
-
-int		print_width_int(long long ap);
-
-int		numlen(long long number);
-
-int		print_width_str(char *str);
-
-int		convert_hex(unsigned long number, int check);
-
-void	flag(char **str);
-
-void	ft_putstr_precision(char *s, int fd);
+int		convert_hex(unsigned long number, bool is_uppercase);
 
 int		print_width_unsigned(unsigned long long ap);
 
 int		unsigned_numlen(unsigned long long number);
-
-int		remaining(int numlen);
 
 #endif

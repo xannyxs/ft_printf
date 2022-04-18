@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   conversions.h                                      :+:    :+:            */
+/*   ../ft_printf.h                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
@@ -17,17 +17,7 @@
  typedef struct s_conversions
  {
  	char key;
- 	int	(*func)(va_list);
+ 	unsigned int	(*func)(va_list);
  }		t_conversions;
-
- t_conversions	s_conversions[] = {
- 	{'s', &print_s},
- 	{'c', &print_c},
- 	{'i', &print_id},
- 	{'d', &print_id},
- 	{'u', &print_u},
- 	{'p', &print_p},
- 	{0, NULL}
- };
 
  #endif

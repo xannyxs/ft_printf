@@ -6,11 +6,14 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/07 16:04:30 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/07/09 18:38:55 by xander        ########   odam.nl         */
+/*   Updated: 2022/04/18 11:47:43 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../printf.h"
+#include "ft_printf.h"
+
+#include <stdarg.h>
+#include <unistd.h>
 
 /*
 	Printf cannot work with 0 and p together. For example, "%015p".
@@ -18,28 +21,14 @@
 	It should show an ERROR.
 */
 
-int	print_p(va_list ap)
+unsigned int	print_p(va_list ap)
 {
 	size_t				len;
 	unsigned long long	hex;
 
 	len = 0;
 	hex = (unsigned long long) va_arg(ap, void *);
-	t_flags.width = t_flags.width - 1;
-	t_flags.zero_true = 0;
-	if (hex == 0)
-		t_flags.width--;
-	if (t_flags.minus_true == 1)
-	{
-		write(1, "0x", 2);
-		len = convert_hex(hex, 0);
-		len = print_width_int(hex) + len;
-	}
-	else
-	{
-		len = print_width_int(hex);
-		write(1, "0x", 2);
-		len = convert_hex(hex, 0) + len;
-	}
+	write(STDOUT_FILENO, "0x", 2);
+	len += convert_hex(hex, false);
 	return (len + 2);
 }

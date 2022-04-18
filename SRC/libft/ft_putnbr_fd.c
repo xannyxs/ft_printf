@@ -6,15 +6,15 @@
 /*   By: xvoorvaa <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/20 14:58:40 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2021/07/08 18:55:42 by xander        ########   odam.nl         */
+/*   Updated: 2022/04/18 13:09:34 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_putnbr_fd(int n, int fd, size_t len)
+unsigned int	ft_putnbr_fd(int n, int fd, unsigned int len)
 {
-	int	i;
+	long	i;
 
 	i = n;
 	if (i < 0)
