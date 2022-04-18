@@ -17,5 +17,7 @@ jobs:
       run: make re
     - name: Clone tester
       run: git clone https://github.com/Tripouille/printfTester.git
+    - name: Set Term
+      run: export TERM=gnome-2007
     - name: run - printfTester
       run: make -C printfTester
