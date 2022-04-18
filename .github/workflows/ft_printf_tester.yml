@@ -20,4 +20,4 @@ jobs:
     - name: make - printf_tester
       run: make -C ft_printf-tester
     - name: Execute tester
-      run: bash ./ft_printf-tester/test
+      run: ./ft_printf-tester/test
