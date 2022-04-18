@@ -22,4 +22,4 @@ jobs:
     - name: make - printf_tester
       run: make
     - name: Execute tester
-      run: ./test
+      run: ls -la
