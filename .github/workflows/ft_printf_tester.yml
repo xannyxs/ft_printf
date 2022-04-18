@@ -13,7 +13,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: make re
+    - name: make re - ft_printf
       run: make re
     - name: Clone tester
       run: git clone https://github.com/joppiesaus/ft_printf-tester.git
+    - name: cd ft_printf-tester
+      run: cd ft_printf-tester
+    - name: make - printf_tester
+      run: make
+    - name: Execute tester
+      run: ./test
