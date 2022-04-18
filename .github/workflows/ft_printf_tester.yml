@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ master ]
 
+env:
+  TERM: xterm-256color
+
 jobs:
   build:
 
@@ -17,10 +20,5 @@ jobs:
       run: make re
     - name: Clone tester
       run: git clone https://github.com/Tripouille/printfTester.git
-    - name: Create env file
-      run: |
-        touch .env
-        echo TERM=xterm-256color >> .env
-        cat .env
     - name: run - printfTester
       run: make -C printfTester
