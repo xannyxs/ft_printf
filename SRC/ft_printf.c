@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 15:11:49 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2022/04/18 17:20:17 by xander        ########   odam.nl         */
+/*   Updated: 2022/04/19 13:15:02 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,21 @@
 #include <stdarg.h>
 
 #include <stdio.h>
+
+static void	reset_values(t_flags *flags)
+{
+	flags->width = 0;
+}
+
+static unsigned int	len_of_width(char **str)
+{
+	unsigned int	width;
+
+	width = ft_atoi(*str);
+	while (ft_isdigit(**str) == true)
+		(*str)++;
+	return (width);
+}
 
 static int	check_perc(char *str, va_list ap)
 {
@@ -27,13 +42,10 @@ static int	check_perc(char *str, va_list ap)
 	{
 		if (*str == '%')
 		{
+			reset_values(&flags);
 			str++;
 			if (ft_strchr(WIDTH, *str))
-			{
-				flags.width = ft_atoi(str);
-				while (ft_isdigit(*str) == true)
-					str++;
-			}
+				flags.width = len_of_width(&str);
 			if (ft_strchr(CONV, *str))
 				len += conversion(&flags, str, ap);
 		}

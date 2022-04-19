@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isdigit.c                                       :+:    :+:            */
+/*   ft_numlen.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
+/*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/06/09 19:50:34 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2022/04/18 23:07:38 by xander        ########   odam.nl         */
+/*   Created: 2022/04/19 13:26:46 by xander        #+#    #+#                 */
+/*   Updated: 2022/04/19 13:26:58 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
-
-bool	ft_isdigit(int argc)
+int	ft_numlen(int n, unsigned int len)
 {
-	if (argc < '0' || argc > '9')
-		return (false);
-	return (true);
+	long	i;
+
+	i = n;
+	if (i < 0)
+	{
+		i = i * -1;
+		len++;
+	}
+	if (i > 9)
+	{
+		len = ft_numlen(i / 10, len);
+		len = ft_numlen(i % 10, len);
+	}
+	else
+	{
+		i = i + '0';
+		len++;
+	}
+	return (len);
 }

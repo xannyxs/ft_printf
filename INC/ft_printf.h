@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/24 19:26:37 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2022/04/18 17:24:57 by xander        ########   odam.nl         */
+/*   Updated: 2022/04/19 15:16:13 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,6 @@
 
 typedef struct s_flags
 {
-	int				precision;
-	bool			is_minus;
-	bool			is_zero_fill;
-	bool			is_negative;
 	unsigned int	width;
 }	t_flags;
 
@@ -34,19 +30,19 @@ typedef struct s_flags
 	LIBFT
 */
 
-void	ft_putchar_fd(char c, int fd);
+void			ft_putchar_fd(char c, int fd);
 
-char	*ft_strchr(const char *str, int c);
+char			*ft_strchr(const char *str, int c);
 
-int		ft_putnbr_fd(long n, int fd, unsigned int len);
+int				ft_putnbr_fd(long n, int fd, unsigned int len);
 
-int		ft_atoi(const char *str);
+int				ft_atoi(const char *str);
 
-size_t	ft_strlen(char const *str);
+size_t			ft_strlen(char const *str);
 
-bool	ft_isdigit(int argc);
+bool			ft_isdigit(int argc);
 
-void	ft_putstr_fd(char *s, int fd);
+void			ft_putstr_fd(char *s, int fd);
 
 /*
 	PRINT_
@@ -64,7 +60,7 @@ unsigned int	print_id(t_flags *flags, va_list ap);
 
 unsigned int	print_s(t_flags *flags, va_list ap);
 
-unsigned int	print_perc(t_flags *flags);
+unsigned int	print_perc(t_flags *flags, va_list ap);
 
 /*
 	SRC
@@ -75,5 +71,7 @@ int				ft_printf(const char *str, ...);
 unsigned int	conversion(t_flags *flags, char *str, va_list ap);
 
 int				convert_hex(unsigned long number, bool is_uppercase);
+
+int				ft_numlen(int n, unsigned int len);
 
 #endif

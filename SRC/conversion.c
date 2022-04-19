@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 16:21:50 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2022/04/18 17:21:41 by xander        ########   odam.nl         */
+/*   Updated: 2022/04/19 15:16:22 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,17 @@ int	convert_hex(unsigned long number, bool is_uppercase)
 
 unsigned int	conversion(t_flags *flags, char *str, va_list ap)
 {
-	int	i;
-	int	len;
-	t_conversions	s_conversions[] = {
+	int					i;
+	int					len;
+	const t_conversions	s_conversions[] = {
 	{'s', &print_s},
 	{'c', &print_c},
 	{'i', &print_id},
 	{'d', &print_id},
 	{'u', &print_u},
 	{'p', &print_p},
-	{0, NULL}
-};
+	{'%', &print_perc},
+	};
 
 	i = 0;
 	len = 0;
@@ -63,7 +63,5 @@ unsigned int	conversion(t_flags *flags, char *str, va_list ap)
 		len = print_x(flags, ap, false);
 	else if (*str == 'X')
 		len = print_x(flags, ap, true);
-	else if (*str == '%')
-		len = print_perc(flags);
 	return (len);
 }
