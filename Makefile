@@ -6,7 +6,7 @@
 #    By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/09/15 18:01:23 by xvoorvaa      #+#    #+#                  #
-#    Updated: 2022/04/19 13:30:36 by xander        ########   odam.nl          #
+#    Updated: 2022/04/19 15:44:29 by xander        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ FILES			=	ft_printf.c \
 					print/print_p.c \
 					print/print_id.c \
 					print/print_perc.c \
-					utils/ft_numlen.c
+					utils/ft_numlen.c \
+					utils/convert_hex.c
 
 
 SHELL			:=	/bin/bash
