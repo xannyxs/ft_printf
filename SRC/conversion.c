@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 16:21:50 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2022/04/19 15:16:22 by xander        ########   odam.nl         */
+/*   Updated: 2022/04/19 15:40:36 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,6 @@
 #include "conversions.h"
 
 #include <unistd.h>
-
-#include <stdio.h>
-
-int	convert_hex(unsigned long number, bool is_uppercase)
-{
-	const char	*caps_digits;
-	const char	*nocaps_digits;
-	size_t		len;
-
-	len = 0;
-	caps_digits = "0123456789ABCDEF";
-	nocaps_digits = "0123456789abcdef";
-	if (number > 15)
-		len += convert_hex(number / 16, is_uppercase);
-	number = number % 16;
-	if (is_uppercase == true)
-		write(STDOUT_FILENO, &caps_digits[number], 1);
-	else if (is_uppercase == false)
-		write(STDOUT_FILENO, &nocaps_digits[number], 1);
-	len++;
-	return (len);
-}
 
 unsigned int	conversion(t_flags *flags, char *str, va_list ap)
 {
