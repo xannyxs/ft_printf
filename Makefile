@@ -1,20 +1,8 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
-#                                                      +:+                     #
-#    By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                      #
-#                                                    +#+                       #
-#    Created: 2021/09/15 18:01:23 by xvoorvaa      #+#    #+#                  #
-#    Updated: 2022/04/19 15:44:29 by xander        ########   odam.nl          #
-#                                                                              #
-# **************************************************************************** #
-
 NAME			=	libftprintf.a
-CC				=	gcc
-CFLAGS			=	-Wall -Wextra -Werror
 
-OBJ_DIR			=	OBJ
+CFLAGS		=	-Wall -Wextra  -pedantic
+
+OBJ_DIR		=	obj
 
 FILES			=	ft_printf.c \
 					conversion.c \
@@ -36,9 +24,8 @@ FILES			=	ft_printf.c \
 					utils/convert_hex.c
 
 
-SHELL			:=	/bin/bash
-HEADERS			:=	-I INC
-SRCS			:=	$(addprefix SRC/, $(FILES))
+HEADERS		:=	-Iinc
+SRCS			:=	$(addprefix src/, $(FILES))
 OBJS			:=	$(SRCS:.c=.o)
 
 PINK = \x1b[35;01m
@@ -75,5 +62,9 @@ fclean:		clean
 	@rm -rf $(NAME).dSYM
 
 re:			fclean all
+
+run: all
+	gcc main.c libftprintf.a -Iinc/ -o main
+	./main	
 
 .PHONY:		all clean fclean re

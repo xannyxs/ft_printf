@@ -12,61 +12,56 @@
 
 #include "ft_printf.h"
 
-#include <unistd.h>
 #include <stdarg.h>
-
+#include <stdint.h>
 #include <stdio.h>
+#include <unistd.h>
 
-static void	reset_values(t_flags *flags)
-{
-	flags->width = 0;
+uint32_t len_of_width(const char *str, int32_t *offset) {
+  uint32_t width = 0;
+  int32_t i = 0;
+
+  while (ft_isdigit(str[i])) {
+    width = width * 10 + (str[i] - '0');
+    i++;
+  }
+
+  *offset = i;
+  return width;
 }
 
-static unsigned int	len_of_width(char **str)
-{
-	unsigned int	width;
+int32_t ft_printf(const char *str, ...) {
+  va_list arg;
+  uint32_t len = 0;
+  t_flags flags = {0};
 
-	width = ft_atoi(*str);
-	while (ft_isdigit(**str) == true)
-		(*str)++;
-	return (width);
-}
+  va_start(arg, str);
 
-static int	check_perc(char *str, va_list ap)
-{
-	int		len;
-	t_flags	flags;
+  for (int32_t i = 0; str[i]; i++) {
+    if (str[i] == '%') {
+      flags.width = 0;
+      i += 1;
 
-	len = 0;
-	while (*str != '\0')
-	{
-		if (*str == '%')
-		{
-			reset_values(&flags);
-			str++;
-			if (ft_strchr(WIDTH, *str))
-				flags.width = len_of_width(&str);
-			if (ft_strchr(CONV, *str))
-				len += conversion(&flags, str, ap);
-		}
-		else
-		{
-			write(STDOUT_FILENO, str, 1);
-			len++;
-		}
-		str++;
-	}
-	return (len);
-}
+      if (ft_isdigit(str[i]) == true) {
+        int32_t offset = 0;
+        flags.width = len_of_width(&str[i], &offset);
+        i += offset;
+      }
 
-int	ft_printf(const char *str, ...)
-{
-	unsigned int	len;
-	va_list			arg;
+      if (ft_strchr(CONV, str[i])) {
+        len += conversion(&flags, (char *)&str[i], arg);
+      }
 
-	len = 0;
-	va_start(arg, str);
-	len = check_perc((char *) str, arg);
-	va_end(arg);
-	return (len);
+      continue;
+    }
+
+    if (write(STDOUT_FILENO, &str[i], 1) < 0) {
+      perror("error in write");
+    }
+    len++;
+  }
+
+  va_end(arg);
+
+  return len;
 }

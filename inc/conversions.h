@@ -11,14 +11,14 @@
 /* ************************************************************************** */
 
 #ifndef CONVERSIONS_H
-# define CONVERSIONS_H
+#define CONVERSIONS_H
 
-# include "printf.h"
+#include "ft_printf.h"
+#include <stdint.h>
 
-typedef struct s_conversions
-{
-	char			key;
-	unsigned int	(*func)(t_flags *, va_list);
-}	t_conversions;
+typedef struct s_conversions {
+  char key;
+  uint32_t (*func)(t_flags *, va_list);
+} t_conversions;
 
 #endif
